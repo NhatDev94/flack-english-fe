@@ -1,0 +1,6 @@
+<div class="form-group">
+  <label *ngIf="label != ''" for="{{id}}">{{label}}</label>
+  <select [multiple]="multiple" class="select2" id="{{id}}" style="width: 100%;">
+    <ng-content></ng-content>
+  </select>
+</div>

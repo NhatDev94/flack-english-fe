@@ -1,0 +1,920 @@
+/* You can add global styles to this file, and also import other style files */
+/* Setting style */
+html,
+body {
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+}
+
+/* Background brand */
+.adi-background-brand,
+.adi-background-guest {
+  background: #969696 url('assets/img/background.jpg') no-repeat center center;
+  background-size: cover;
+  /* ghi de background */
+  background: linear-gradient(to right bottom, black, #FFB800);
+}
+
+.adi-background-guest {
+  min-height: 100vh !important;
+  height: 100%;
+  position: relative;
+}
+
+.adi-background-overlay {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.1);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Overwrite library */
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row.adi-row-overflow-x {
+  flex-wrap: nowrap;
+  overflow: auto;
+}
+
+.ant-child-no-padding > * {
+  padding: 0;
+}
+
+.custom-report p {
+  margin-bottom: 0;
+}
+
+.main-header {
+  border-bottom: 1px solid transparent;
+}
+
+.dropdown-toggle:after {
+  content: none
+}
+
+table .dropdown-menu {
+  padding: 0
+}
+
+/* Logo brand */
+.login-logo {
+  margin-top: -4rem;
+}
+
+.login-logo img,
+.register-logo img {
+  height: 100%;
+}
+
+.register-logo a,
+.login-logo a {
+  color: #000;
+}
+
+.login-logo h1,
+.register-logo h1 {
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
+.login-logo h2,
+.register-logo h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0;
+}
+
+/* Rotate spinner */
+.adi-rotate-spinner {
+  animation: spinner 1.2s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Navbar */
+.nav-sidebar > .nav-item .nav-icon {
+  margin-right: 5px;
+}
+
+/* Sidebar */
+.main-sidebar .brand-image {
+  margin-top: -6px;
+}
+
+.brand-link .brand-image {
+  margin-left: .5rem;
+}
+
+/* Table page */
+.page-item.active .page-link {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.table tbody tr,
+.table tbody tr > * {
+  vertical-align: middle;
+}
+
+.table tbody td {
+  padding: 0.5rem 0.75rem;
+}
+
+.table-2 thead th {
+  padding: 1rem !important;
+}
+
+.table-2 tbody td {
+  padding: 1rem !important;
+}
+
+/* Table Employee Schedule */
+.tb-schedule-employee-hour {
+  background: #fff;
+}
+
+.tb-schedule-employee-info tbody span {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tb-schedule-employee-hour tr {
+  text-align: center;
+}
+
+.tb-schedule-employee-info tbody tr,
+.tb-schedule-employee-hour tbody tr {
+  height: 50px;
+  max-height: 50px
+}
+
+.tb-schedule-employee-info td,
+.tb-schedule-employee-hour tbody td {
+  padding: 0 5px;
+}
+
+.tb-schedule-employee-hour td {
+  min-width: 100px;
+  cursor: pointer;
+}
+
+.tb-schedule-employee-hour td div,
+.bg-schedule {
+  background: #ffc107;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+}
+
+/* Apply this style if has only one span tag */
+.tb-schedule-employee-hour div span:only-child {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* Overlay body */
+body.overlay-wrapper {
+  position: relative;
+}
+
+/* Overlay */
+.card .overlay, .info-box .overlay, .overlay-wrapper .overlay, .small-box .overlay {
+  background: rgba(101, 101, 101, 0.3);
+}
+
+.popover .popover-body {
+  font-size: 13px !important;
+  font-family: 'Helvetica';
+}
+
+/* Utilities */
+.adi-cursor-pointer {
+  cursor: pointer;
+}
+
+.adi-min-height-100 {
+  min-height: 100vh !important;
+}
+
+/* Card component */
+.adi-card-body-wrapper {
+  max-height: 580px;
+  overflow-y: scroll;
+  font-size: 16px;
+}
+
+.adi-card-body-wrapper li {
+  list-style: none;
+}
+
+/* Box component */
+.adi-box-header {
+  font-size: 1.3em;
+}
+
+.adi-box-content p {
+  font-size: 1em;
+}
+
+.small-box .adi-box-icon > i.fas {
+  font-size: 50px;
+  top: 12px;
+}
+
+.small-box:hover .adi-box-icon > i.fas {
+  font-size: 55px;
+  transition: font-size 0.2s linear !important;
+}
+
+/* Giftcart Barcode */
+.adi-barcode-camera {
+  position: relative;
+}
+
+.adi-barcode-camera video {
+  width: 100%;
+}
+
+.adi-barcode-camera canvas {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Register Customer Box */
+.register-box label {
+  margin: 0.3rem 0;
+}
+
+.register-box .form-group {
+  margin-bottom: 0;
+}
+
+/* Datatable */
+table.dataTable th {
+  white-space: nowrap;
+}
+
+table.dataTable tr td {
+  hyphens: auto;
+}
+
+table.dataTable tr td.adi-tdata-none-hyphens {
+  hyphens: none;
+}
+
+.dataTables_wrapper div.row:nth-child(2) {
+  overflow: auto;
+}
+
+.dataTables_wrapper div.row:nth-child(2) > .col-sm-12 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+td .form-group {
+  margin-bottom: 0;
+}
+
+/* Calendar */
+.operation-calendar {
+  max-height: 600px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 1px rgb(122, 122, 122);
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar {
+  background-color: #f5f5f5;
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgba(83, 80, 80, 0.3);
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(36, 35, 35, 0.8);
+}
+
+/* Button */
+.btn-sq {
+  text-align: center;
+  vertical-align: middle;
+  width: 110px !important;
+  height: 110px !important;
+  font-size: 0.75em;
+}
+
+.mid-center {
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.btn-area {
+  width: 85%;
+}
+
+.bg-gradient-red {
+  box-shadow: inset 0px 1px 0px 0px #f7c5c0;
+  background: linear-gradient(to bottom, #fc8d83 5%, #e4685d 100%);
+  background-color: #fc8d83;
+  border-radius: 6px;
+  border: 1px solid #d83526;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #b23e35;
+}
+
+.bg-gradient-red:hover {
+  background: linear-gradient(to bottom, #e4685d 5%, #fc8d83 100%);
+  background-color: #e4685d;
+}
+
+.bg-gradient-red:active {
+  position: relative;
+  top: 1px;
+}
+
+.a-padding {
+  padding: 5px 10px;
+}
+
+.page-link,
+.fc-event-main {
+  cursor: pointer;
+}
+
+/* Btn tab */
+.btn-tab:hover {
+  background-color: #b3b3b3;
+  color: white;
+}
+
+.btn-tab.active {
+  background-color: #ffc107 !important;
+}
+
+/* drap drop file */
+.drap-drop-file {
+  border: 2px silver dashed;
+  min-height: 200px;
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.drap-drop-title {
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
+
+.drap-drop-file.drap {
+  background-color: #666;
+}
+
+/* Ticket view */
+#adi-ticket-view .card-body {
+  padding: 0.5rem 0.75rem;
+}
+
+#adi-ticket-view p {
+  margin-bottom: 0.5rem;
+}
+
+#adi-ticket-item-list {
+  padding: 0 !important;
+  max-height: 145px;
+}
+
+.adi-ticket-item-scroll {
+  overflow-y: scroll;
+  height: 400px;
+}
+
+.ticket-item-list td {
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+.adi-btn-service {
+  height: 95px;
+}
+
+/* Responsive */
+@media only screen and (max-width: 767px) {
+  .ticket-custom-height {
+    height: 200px;
+  }
+
+  /* Overwrite margin-bottom datatable */
+  table.dataTable {
+    margin-bottom: 0 !important;
+  }
+
+  /* Align center pagination datatable */
+  div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    margin: 10px 0;
+    justify-content: center;
+  }
+
+  .adi-btn-service {
+    height: 70px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  /* Overwrite calendar btn-group */
+  .fc-toolbar-chunk .btn-group {
+    margin-bottom: 0.7rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+
+  .ticket-custom-height {
+    height: 350px;
+  }
+
+  /*calculate commission button*/
+  .custom-cal-font {
+    font-size: 20px;
+  }
+
+  #adi-invoice-item-list {
+    height: 240px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  #adi-invoice-item-list {
+    height: 305px;
+  }
+
+  #adi-ticket-item-list {
+    max-height: 139px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #adi-invoice-item-list {
+    height: 265px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  /* Ticket management page */
+  .adi-scrollbar-xl-hidden .os-scrollbar.os-scrollbar-horizontal {
+    display: none;
+  }
+
+  /* Box component */
+  .adi-box-header {
+    font-size: 1.3em;
+  }
+
+  .adi-box-content p {
+    font-size: 0.9em;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  #adi-invoice-item-list {
+    height: 283px;
+  }
+}
+
+@media only screen and (max-height: 991px) {
+  .adi-ticket-item-scroll {
+    height: 300px;
+  }
+
+  .adi-btn-service {
+    height: 70px;
+  }
+}
+
+@media only screen and (max-height: 767px) {
+  .login-logo {
+    margin-top: 0;
+  }
+
+  .register-logo img {
+    display: none;
+  }
+}
+
+@media only screen and (max-height: 567px) {
+  .login-logo {
+    margin-top: 0;
+  }
+
+  .login-logo img,
+  .register-logo img {
+    display: none;
+  }
+}
+
+@media only screen and (min-height: 768px) {
+  #adi-ticket-item-list {
+    max-height: 240px;
+  }
+}
+
+.adi-print-section {
+  display: none;
+}
+
+/* Print screen */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    /*Chrome, Safari */
+    color-adjust: exact !important;
+    /*Firefox*/
+  }
+
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+  }
+
+  .page-break {
+    display: block;
+    page-break-before: always;
+  }
+
+  body > * {
+    display: none;
+  }
+
+  .adi-print-section {
+    display: block !important;
+  }
+
+  .adi-print-footer {
+    page-break-after: always;
+  }
+
+  /* Print */
+  .adi-print-order,
+  .adi-sale-report {
+    width: 64mm !important;
+    background: #FFF;
+  }
+
+  .adi-print-logo {
+    width: 50mm;
+  }
+
+  .adi-print-order h1 {
+    font-size: 1.5rem;
+    color: #000;
+  }
+
+  .adi-print-order h2 {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  .adi-print-order h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  .adi-print-order p {
+    font-size: 1.2rem;
+    color: #000;
+  }
+
+  .adi-print-order .adi-print-top,
+  .adi-print-order .adi-print-mid,
+  .adi-print-order .adi-print-bot {
+    /* Targets all id with 'col-' */
+    border-bottom: 1px solid #EEE;
+  }
+
+  .adi-print-order .adi-print-top {
+    min-height: 100px;
+  }
+
+  .adi-print-order .adi-print-mid {
+    min-height: 80px;
+  }
+
+  .adi-print-order .adi-print-bot {
+    min-height: 50px;
+  }
+
+  .adi-print-info {
+    padding: 0 5px;
+  }
+
+  .adi-print-order .adi-print-title {
+    float: right;
+  }
+
+  .adi-print-order .adi-print-title p {
+    text-align: right;
+  }
+
+  .adi-print-order .adi-print-brand {
+    font-weight: bold;
+  }
+
+  .adi-print-order .adi-print-subbrand {
+    font-weight: normal;
+  }
+
+  .adi-print-order .adi-print-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .adi-print-order .adi-print-tableTitle {
+    font-size: 1.2rem;
+    background: #EEE;
+  }
+
+  .adi-print-order .adi-print-service {
+    border-bottom: 1px solid #EEE;
+  }
+
+  .adi-print-order .adi-print-item {
+    width: 35mm;
+  }
+
+  .adi-print-order .adi-print-itemText {
+    font-size: 1rem;
+  }
+
+  .adi-print-order .adi-print-footer {
+    margin-top: 5mm;
+  }
+
+  /* sale report  */
+  .adi-sale-report td {
+    width: 40mm;
+  }
+
+  .adi-payment-type td {
+    width: 22mm;
+  }
+
+  .adi-sale-report-header {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .adi-sale-report-item {
+    font-size: 1.1rem;
+    text-align: right;
+  }
+
+  .custom-report {
+    font-family: Consolas;
+    text-align: right;
+  }
+
+  .custom-report p {
+    font-size: 1.25rem;
+  }
+}
+
+@media all and (min-width: 40mm) {
+  .adi-print-order,
+  .adi-sale-report {
+    width: 100mm !important;
+    background: #FFF;
+  }
+
+  .adi-print-logo {
+    width: 70mm;
+  }
+
+  .adi-print-order .adi-print-item {
+    width: 61mm;
+  }
+
+  .adi-sale-report td {
+    width: 50mm;
+  }
+
+  .adi-payment-type td {
+    width: 40mm;
+  }
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #004aad;
+  border-color: #004aad;
+  box-shadow: none
+}
+
+.btn-secondary:hover {
+  color: #fff;
+  background-color: #003780;
+  border-color: #003780
+}
+
+.btn-secondary.focus, .btn-secondary:focus {
+  color: #fff;
+  background-color: #003780;
+  border-color: #003780;
+  box-shadow: none, 0 0 0 0 rgba(130, 138, 145, .5)
+}
+
+.btn-secondary.disabled, .btn-secondary:disabled {
+  color: #fff;
+  background-color: #004aad;
+  border-color: #004aad;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show > .btn-secondary.dropdown-toggle {
+  color: #fff;
+  background-color: #003780;
+  border-color: #003780;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active:focus, .btn-secondary:not(:disabled):not(.disabled):active:focus, .show > .btn-secondary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0 rgba(130, 138, 145, .5)
+}
+
+.navbar-dark {
+  background-color: #FFFFFF;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #0063e6;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+  color: #004aad;
+}
+
+.bg-dark {
+  background-color: #FFFFFF !important
+}
+
+a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
+  background-color: #f2f2f2 !important
+}
+
+.sidebar-dark-warning .nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-warning .nav-sidebar > .nav-item > .nav-link.active {
+  background-color: #e6f7ff;
+  color: #00264d
+}
+
+[class*=sidebar-dark-] {
+  background-color: #004aad
+}
+
+[class*=sidebar-dark-] .nav-header {
+  background: inherit;
+  color: #FFFFFF
+}
+
+[class*=sidebar-dark-] .sidebar a {
+  color: #e6e6e6
+}
+
+.text-white {
+  color: #004aad !important
+}
+
+.bg-secondary {
+  background-color: #006eff !important
+}
+
+.bg-secondary, .bg-secondary > a {
+  color: #FFFFFF !important
+}
+
+.bg-secondary.btn:hover {
+  border-color: #cccccc;
+  color: #1a1a1a
+}
+
+.bg-secondary.btn.active, .bg-secondary.btn:active, .bg-secondary.btn:not(:disabled):not(.disabled).active, .bg-secondary.btn:not(:disabled):not(.disabled):active {
+  background-color: #b3b3b3 !important;
+  border-color: #b3b3b3;
+  color: #000b16;
+}
+
+.bg-secondary {
+  background-color: #004aad !important
+}
+
+a.bg-secondary:focus, a.bg-secondary:hover, button.bg-secondary:focus, button.bg-secondary:hover {
+  background-color: #003780 !important
+}
+
+.text-warning {
+  color: #8c8c8c !important
+}
+
+a.text-warning:focus, a.text-warning:hover {
+  color: #FFFFFF !important
+}
+
+.btn-warning {
+  color: #FFFFFF !important;
+  background-color: #004aad;
+  border-color: #004aad;
+  box-shadow: none
+}
+
+.btn-warning:hover {
+  color: #FFFFFF;
+  background-color: #003780;
+  border-color: #003780
+}
+
+.btn-warning.focus, .btn-warning:focus {
+  color: #FFFFFF;
+  background-color: #003780;
+  border-color: #003780;
+  box-shadow: none, 0 0 0 0 rgba(221, 171, 15, .5)
+}
+
+.btn-warning.disabled, .btn-warning:disabled {
+  color: #FFFFFF;
+  background-color: #004aad;
+  border-color: #004aad;
+}
+
+.btn-warning:not(:disabled):not(.disabled).active, .btn-warning:not(:disabled):not(.disabled):active, .show > .btn-warning.dropdown-toggle {
+  color: #FFFFFF;
+  background-color: #003780;
+  border-color: #003780
+}
+
+.btn-warning:not(:disabled):not(.disabled).active:focus, .btn-warning:not(:disabled):not(.disabled):active:focus, .show > .btn-warning.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0 rgba(221, 171, 15, .5)
+}
+
+.bg-warning {
+  background-color: #003780 !important
+}
+
+.bg-warning {
+  background-color: #004aad !important
+}
+
+.bg-warning, .bg-warning > a {
+  color: #FFFFFF !important
+}
+
+.bg-warning.btn:hover {
+  border-color: #003780;
+  color: #003780
+}
+
+.bg-warning.btn.active, .bg-warning.btn:active, .bg-warning.btn:not(:disabled):not(.disabled).active, .bg-warning.btn:not(:disabled):not(.disabled):active {
+  background-color: #003780 !important;
+  border-color: #003780;
+  color: #FFFFFF;
+}
+
+a.bg-warning:focus, a.bg-warning:hover, button.bg-warning:focus, button.bg-warning:hover {
+  background-color: #003780 !important
+}

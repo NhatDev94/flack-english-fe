@@ -1,0 +1,70 @@
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-warning">
+  <!-- Brand Logo -->
+  <a class="brand-link bg-dark" routerLink="/">
+    <img
+      alt="Belle Palace Logo"
+      class="brand-image img-circle elevation-3"
+      src="assets/img/icon-ez.png"/>
+    <span class="brand-text font-weight-light text-white"> Hacking English</span>
+  </a>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar Menu -->
+    <nav class="my-2">
+      <ul
+        class="nav nav-pills nav-sidebar flex-column"
+        data-accordion="false"
+        data-widget="treeview"
+        role="menu">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+        <li class="nav-item">
+          <a
+            [routerLinkActive]="['active']"
+            class="nav-link"
+            routerLink="/dashboard">
+            <i class="nav-icon fas fa-home"></i>
+            <p>Thông tin chung</p>
+          </a>
+          <a
+            [routerLinkActive]="['active']"
+            class="nav-link"
+            routerLink="/customer">
+            <i class="nav-icon fas fa-home"></i>
+            <p>Quản lí tài khoản Customer</p>
+          </a>
+        </li>
+        <li *ngIf="licenseGroups.length > 0" class="nav-header">Quản lý License</li>
+        <li *ngFor="let license of licenseGroups" class="nav-item">
+          <a
+            [routerLinkActive]="['active']"
+            class="nav-link"
+            routerLink="{{license.routerLink}}">
+            <i class="nav-icon fas {{license.icon}}"></i>
+            <p>{{license.name}}</p>
+          </a>
+        </li>
+        <!--        <li *ngIf="employeeGroups.length > 0" class="nav-header">Employee Management</li>-->
+        <!--        <li *ngFor="let emp of employeeGroups" class="nav-item">-->
+        <!--          <a-->
+        <!--            [routerLinkActive]="['active']"-->
+        <!--            routerLink="{{emp.routerLink}}"-->
+        <!--            class="nav-link">-->
+        <!--            <i class="nav-icon fas {{emp.icon}}"></i>-->
+        <!--            <p>{{emp.name}}</p>-->
+        <!--          </a>-->
+        <!--        </li>-->
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+  <!-- footer -->
+  <div class="d-block">
+    Copyright &copy; 2020 <span class="text-warning">Belle Palace</span>
+    All rights reserved.
+  </div>
+  <!-- /footer -->
+</aside>

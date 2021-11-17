@@ -1,0 +1,16 @@
+<div class="form-group">
+  <label>{{label}}</label>
+  <div class="input-group">
+    <div class="custom-file">
+      <input #fileEl
+             (change)="onChangeEvent(fileEl.files)"
+             [multiple]="config.maxFilesCount > 1"
+             accept="{{config.acceptExtensions}}"
+             class="files-upload-btn custom-file-input"
+             type="file"/>
+      <label class="custom-file-label">{{fileName()}}</label>
+    </div>
+  </div>
+  <p *ngIf="errorMsg !==''" style="color: red">{{errorMsg}}</p>
+  <ng-content></ng-content>
+</div>
