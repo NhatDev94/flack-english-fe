@@ -20,6 +20,51 @@ export class CustomerComponent implements AfterViewInit {
     private companyService: CompanyService
   ) {
   }
+  
+  customer: any = [
+    {
+      userName: 'Le Tuan Minh Nhat',
+      email: 'nhatdev94@gmail.com',
+      birthday: '2021-01-01',
+      createdDate: '2021-01-01',
+      lastUpdate: '2021-09-22',
+      phoneNumber: '0963244816',
+      imgUrl: 'https://media.gq.com/photos/58ff6de7da176e01df8d45ff/3:4/w_1548,h_2064,c_limit/GettyImages-486393944.jpg'
+    },
+  ]
+
+  listCourse: any = [
+    {
+      course: 'Toic',
+      timeFavorite: '8AM',
+      timeTotal: '320',
+      wordTotal: '1200',
+    },
+    {
+      course: 'Toic',
+      timeFavorite: '9PM',
+      timeTotal: '320',
+      wordTotal: '1200',
+    },
+    {
+      course: 'Toic',
+      timeFavorite: '8AM',
+      timeTotal: '320',
+      wordTotal: '1200',
+    },
+    {
+      course: 'Toic',
+      timeFavorite: '10PM',
+      timeTotal: '320',
+      wordTotal: '1200',
+    },
+    {
+      course: 'Toic',
+      timeFavorite: '10PM',
+      timeTotal: '320',
+      wordTotal: '1200',
+    },
+  ]
 
   ngAfterViewInit() {
     this.getCompanies();

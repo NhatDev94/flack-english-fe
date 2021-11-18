@@ -28,6 +28,27 @@ const routes: Routes = [
     ],
   },
   {
+    path: 'customerList',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./customerList/customerList.module').then((m) => m.CustomerListModule),
+      },
+    ],
+  },
+  {
+    // sua lai path: employee -> nhan vien cu the thi path= 'employee:id'
+    path: 'employeeList',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./employeeList/employeeList.module').then((m) => m.EmployeeModule),
+      },
+    ],
+  },
+  {
     path: 'customer',
     children: [
       {
@@ -36,7 +57,7 @@ const routes: Routes = [
           import('./customer/customer.module').then((m) => m.CustomerModule),
       },
     ],
-  }
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,48 @@
+<app-modal-wrapper #appModalWrapper title="Thêm mới Employee">
+  <div class="modal-body" id="add-company-modal">
+    <div class="row">
+      <div class="col-md-4 form-group">
+        <label for="add_company_first_name">Tên nhân viên <span class="text-red">*</span></label>
+        <input (change)="companyNameChange()" [(ngModel)]="company.name" class="form-control"
+               id="add_company_first_name"
+               name="firstName"
+               placeholder="Tên nhân viên" type="text"/>
+      </div>
+      <div class="col-md-4 form-group">
+        <label for="add_company_last_name">Email <span class="text-red">*</span></label>
+        <input [(ngModel)]="company.nameSlug" class="form-control" id="add_company_last_name" name="lastName"
+               placeholder="Email" type="text"/>
+      </div>
+      <div class="col-md-4 form-group">
+        <label for="add_company_address">Birthday <span class="text-red">*</span></label>
+        <input [(ngModel)]="company.address" class="form-control" id="add_company_address" name="address"
+               placeholder="Birthday" type="text"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 form-group">
+        <label>CreatedDate <span class="text-red">*</span></label>
+        <app-input-mask [(ngModel)]="company.phone"
+                        [classes]="'form-control adi-phone-input-mask'"></app-input-mask>
+      </div>
+      <div class="col-md-4 form-group">
+        <label for="add_company_email">LastUpdate <span class="text-red">*</span></label>
+        <input [(ngModel)]="company.email" class="form-control" id="add_company_email" name="email"
+               type="email"/>
+      </div>
+      <div class="col-md-4 form-group">
+        <label for="add_company_pass">PhoneNumber <span class="text-red">*</span></label>
+        <input [(ngModel)]="company.password" class="form-control" id="add_company_pass" name="password"
+               placeholder="Mật khẩu" type="password"/>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer justify-content-between">
+    <button (click)="appModalWrapper.hide()" class="btn btn-default" type="button">
+      <i class="fas fa-times mr-1"></i>Đóng
+    </button>
+    <button (click)="saveCompany()" class="btn btn-primary" type="button">
+      <i class="fas fa-save mr-1"></i>Lưu
+    </button>
+  </div>
+</app-modal-wrapper>

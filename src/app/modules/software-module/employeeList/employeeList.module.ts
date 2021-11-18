@@ -1,10 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {SharedModule} from '../../../shared/shared.module';
-// import {CompanyComponent} from './pages/customer-demo.component';
+import {EmployeeListComponent} from './pages/employeeList.component';
 import {AppAddCompanyComponent} from './components/add-company/app-add-company.component';
 import {AppUpdateCompanyComponent} from './components/update-company/app-update-company.component';
-import { CustomerComponent } from './pages/customer.component';
 
 const COMPONENTS = [
   AppAddCompanyComponent,
@@ -14,19 +13,19 @@ const COMPONENTS = [
 export const routes: Routes = [
   {
     path: '',
-    component: CustomerComponent
-  }
+    component: EmployeeListComponent
+  },
 ];
 
 @NgModule({
   declarations: [
     ...COMPONENTS,
-    CustomerComponent,
+    EmployeeListComponent,
   ],
   imports: [
     SharedModule,
     RouterModule.forChild(routes)
   ]
 })
-export class CustomerModule {
+export class EmployeeModule {
 }

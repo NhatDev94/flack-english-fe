@@ -8,7 +8,8 @@ import {BaseSearchModel} from '../../../data/schema/search/base-search.model';
 export class AppDataTableComponent implements OnChanges {
   @Input() dataTable: BaseSearchModel<any> = null;
 
-  @Input() dataOnly = false;
+  // @Input() dataOnly = false;
+  @Input() dataOnly = true;
   @Input() showPaging = true;
   @Input() showEntries = true;
   @Input() showDetail = true;

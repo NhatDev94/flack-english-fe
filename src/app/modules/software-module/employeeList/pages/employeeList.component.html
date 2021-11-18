@@ -1,0 +1,87 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Employee</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="/">Trang chủ</a></li>
+          <li class="breadcrumb-item active">Employee</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <!-- /.card-header -->
+          <div class="card-body">
+            <app-data-table (changeEvent)="dataTableChange($event)" [columnNumber]="5" [dataTable]="search">
+              <div class="block-buttons-right row justify-content-center justify-content-md-end">
+                <button
+                  (click)="addCompanyComponent.show()"
+                  class="btn bg-warning">
+                  Tạo mới
+                </button>
+              </div>
+              <thead>
+              <tr>
+                <th>UserName</th>
+                <th>Email</th>
+                <th>Birthday</th>
+                <th>CreatedDate</th>
+                <th>LastUpdate</th>
+                <th>PhoneNumber</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <!-- <tr *ngFor="let e of search.result"> -->
+              <tr *ngFor="let e of employees">
+                <td>{{e.userName}}</td>
+                <td>{{e.email}}</td>
+                <td>{{e.birthday}}</td>
+                <td>{{e.createdDate}}</td>
+                <td>{{e.lastUpdate}}</td>
+                <td>{{e.phoneNumber}}</td>
+                <td *ngIf="e.verifyStatus == true">Đã xác thực</td>
+                <td *ngIf="e.verifyStatus == false">Chưa xác thực</td>
+                <td>
+                  <app-dropdown-menu>
+                    <span (click)="updateCompanyComponent.show(e)" class="dropdown-item text-cyan">
+                      <i class="far fa-edit"></i>
+                      Sửa
+                    </span>
+                    <span (click)="deleteCompany(e)" class="dropdown-item text-red">
+                      <i class="far fa-trash-alt mr-1"></i>
+                      Xoá
+                    </span>
+                  </app-dropdown-menu>
+                </td>
+              </tr>
+              </tbody>
+            </app-data-table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+
+  <app-add-company #addCompanyComponent (saveCompleteEvent)="saveCompanyCompleteEvent()"></app-add-company>
+  <!-- /.modal-add -->
+  <app-update-company #updateCompanyComponent (saveCompleteEvent)="saveCompanyCompleteEvent()"></app-update-company>
+  <!-- /.modal-edit -->
+</section>
+<!-- /.content -->

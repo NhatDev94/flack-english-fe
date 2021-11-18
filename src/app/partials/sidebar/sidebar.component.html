@@ -31,9 +31,16 @@
           <a
             [routerLinkActive]="['active']"
             class="nav-link"
-            routerLink="/customer">
+            routerLink="/customerList">
             <i class="nav-icon fas fa-home"></i>
             <p>Quản lí tài khoản Customer</p>
+          </a>
+          <a
+            [routerLinkActive]="['active']"
+            class="nav-link"
+            routerLink="/employeeList">
+            <i class="nav-icon fas fa-home"></i>
+            <p>Quản lí tài khoản Employee</p>
           </a>
         </li>
         <li *ngIf="licenseGroups.length > 0" class="nav-header">Quản lý License</li>
