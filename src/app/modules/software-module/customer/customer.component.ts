@@ -1,10 +1,10 @@
 import {AfterViewInit, Component} from '@angular/core';
-import {AppAlert, AppLoading, AppModals} from '../../../../shared/utils';
-import {CompanyService} from '../../../../core/service/software/company.service';
-import {BaseSearchModel} from '../../../../data/schema/search/base-search.model';
-import {ResponseModel} from '../../../../data/schema/response.model';
-import {HTTP_CODE_CONSTANT} from '../../../../core/constant/http-code.constant';
-import {CompanyModel} from '../../../../data/schema/company.model';
+import {AppAlert, AppLoading, AppModals} from '../../../shared/utils';
+import {CompanyService} from '../../../core/service/software/company.service';
+import {BaseSearchModel} from '../../../data/schema/search/base-search.model';
+import {ResponseModel} from '../../../data/schema/response.model';
+import {HTTP_CODE_CONSTANT} from '../../../core/constant/http-code.constant';
+import {CompanyModel} from '../../../data/schema/company.model';
 
 @Component({
   selector: 'app-customer',

@@ -4,6 +4,8 @@ import {SharedModule} from '../../../shared/shared.module';
 import {CompanyComponent} from './pages/company.component';
 import {AppAddCompanyComponent} from './components/add-company/app-add-company.component';
 import {AppUpdateCompanyComponent} from './components/update-company/app-update-company.component';
+import { CustomerComponent } from '../customer/customer.component';
+import { DemoComponent } from './components/demo/demo.component';
 
 const COMPONENTS = [
   AppAddCompanyComponent,
@@ -13,7 +15,11 @@ const COMPONENTS = [
 export const routes: Routes = [
   {
     path: '',
-    component: CompanyComponent
+    component: CompanyComponent,
+  },
+  {
+    path: ':12',
+    component: DemoComponent,
   }
 ];
 
@@ -21,6 +27,7 @@ export const routes: Routes = [
   declarations: [
     ...COMPONENTS,
     CompanyComponent,
+    DemoComponent
   ],
   imports: [
     SharedModule,

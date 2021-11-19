@@ -4,6 +4,7 @@ import {SharedModule} from '../../../shared/shared.module';
 import {AppAddCompanyComponent} from './components/add-company/app-add-company.component';
 import {AppUpdateCompanyComponent} from './components/update-company/app-update-company.component';
 import { CustomerListComponent } from './pages/customerList.component';
+import { CustomerComponent } from './components/customer/customer.component';
 
 const COMPONENTS = [
   AppAddCompanyComponent,
@@ -14,13 +15,18 @@ export const routes: Routes = [
   {
     path: '',
     component: CustomerListComponent
-  }
+  },
+  {
+    path: ':id',
+    component: CustomerComponent
+  },
 ];
 
 @NgModule({
   declarations: [
     ...COMPONENTS,
     CustomerListComponent,
+    CustomerComponent
   ],
   imports: [
     SharedModule,
