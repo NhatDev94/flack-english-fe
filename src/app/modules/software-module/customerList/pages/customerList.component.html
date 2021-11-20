@@ -46,12 +46,12 @@
               <tbody>
               <!-- <tr *ngFor="let e of search.result"> -->
               <tr *ngFor="let e of customer">
-                <td routerLink="/customerList/{{e.id}}">{{e.userName}}</td>
-                <td routerLink="/customerList/{{e.id}}">{{e.email}}</td>
-                <td routerLink="/customerList/{{e.id}}">{{e.birthday}}</td>
-                <td routerLink="/customerList/{{e.id}}">{{e.createdDate}}</td>
-                <td routerLink="/customerList/{{e.id}}">{{e.lastUpdate}}</td>
-                <td routerLink="/customerList/{{e.id}}">{{e.phoneNumber}}</td>
+                <td routerLink="/customer/{{e.id}}">{{e.userName}}</td>
+                <td routerLink="/customer/{{e.id}}">{{e.email}}</td>
+                <td routerLink="/customer/{{e.id}}">{{e.birthday}}</td>
+                <td routerLink="/customer/{{e.id}}">{{e.createdDate}}</td>
+                <td routerLink="/customer/{{e.id}}">{{e.lastUpdate}}</td>
+                <td routerLink="/customer/{{e.id}}">{{e.phoneNumber}}</td>
                 <td>
                   <app-dropdown-menu>
                     <span (click)="updateCompanyComponent.show(e)" class="dropdown-item text-cyan">

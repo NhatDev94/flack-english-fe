@@ -21,7 +21,7 @@ export const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-          import('../customer/customer.module').then((m) => m.CustomerModule),
+          import('./components/customer/customer.module').then((m) => m.CustomerModule),
       },
     ],
   },

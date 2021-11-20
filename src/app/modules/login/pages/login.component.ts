@@ -9,7 +9,7 @@ import {fromEvent, Subscription} from 'rxjs';
 import {ResponseModel} from '../../../data/schema/response.model';
 import {JwtResponseModel} from '../../../data/schema/jwt-response.model';
 import {AUTH_CONSTANT} from '../../../core/constant/auth.constant';
-
+import {AuthService} from '../../../core/service/generic/auth.service';
 
 declare var $: any;
 
@@ -30,6 +30,7 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
     private loading: AppLoading,
     private alert: AppAlert,
     private router: Router,
+    private authServices: AuthService
   ) {
     $('body').addClass('login-page adi-background-guest');
   }
@@ -47,6 +48,7 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
 
   public login() {
     this.loading.show();
+    this.authServices.login().subscribe(res=>this.loginCompleted(res));
   }
 
   private loginCompleted(res: ResponseModel<JwtResponseModel>) {

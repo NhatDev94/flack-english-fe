@@ -28,7 +28,7 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'customerList',
+    path: 'customer',
     children: [
       {
         path: '',
@@ -39,7 +39,7 @@ const routes: Routes = [
   },
   {
     // sua lai path: employee -> nhan vien cu the thi path= 'employee:id'
-    path: 'employeeList',
+    path: 'employee',
     children: [
       {
         path: '',

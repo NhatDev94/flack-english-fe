@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  softBaseUrl: 'http://localhost:5555'
+  softBaseUrl: 'https://hack-vocabulary.herokuapp.com'
 };
 
 /*

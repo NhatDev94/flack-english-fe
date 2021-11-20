@@ -22,7 +22,7 @@ export const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-          import('../employee/employee.module').then((m) => m.EmployeeModule),
+          import('./components/employee/employee.module').then((m) => m.EmployeeModule),
       },
     ],
   },
