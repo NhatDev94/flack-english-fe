@@ -46,14 +46,12 @@
               <tbody>
               <!-- <tr *ngFor="let e of search.result"> -->
               <tr *ngFor="let e of customer">
-                <td>{{e.userName}}</td>
-                <td>{{e.email}}</td>
-                <td>{{e.birthday}}</td>
-                <td>{{e.createdDate}}</td>
-                <td>{{e.lastUpdate}}</td>
-                <td>{{e.phoneNumber}}</td>
-                <td *ngIf="e.verifyStatus == true">Đã xác thực</td>
-                <td *ngIf="e.verifyStatus == false">Chưa xác thực</td>
+                <td routerLink="/customerList/{{e.id}}">{{e.userName}}</td>
+                <td routerLink="/customerList/{{e.id}}">{{e.email}}</td>
+                <td routerLink="/customerList/{{e.id}}">{{e.birthday}}</td>
+                <td routerLink="/customerList/{{e.id}}">{{e.createdDate}}</td>
+                <td routerLink="/customerList/{{e.id}}">{{e.lastUpdate}}</td>
+                <td routerLink="/customerList/{{e.id}}">{{e.phoneNumber}}</td>
                 <td>
                   <app-dropdown-menu>
                     <span (click)="updateCompanyComponent.show(e)" class="dropdown-item text-cyan">

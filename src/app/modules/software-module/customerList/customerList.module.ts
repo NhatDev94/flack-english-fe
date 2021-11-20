@@ -15,6 +15,16 @@ export const routes: Routes = [
     path: '',
     component: CustomerListComponent
   },
+  {
+    path: ':id',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('../customer/customer.module').then((m) => m.CustomerModule),
+      },
+    ],
+  },
 ];
 
 @NgModule({
