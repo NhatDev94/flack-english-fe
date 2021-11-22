@@ -48,7 +48,7 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
 
   public login() {
     this.loading.show();
-    this.authServices.login().subscribe(res=>this.loginCompleted(res));
+    this.authServices.login('admin', '123456').subscribe(res=>this.loginCompleted(res));
   }
 
   private loginCompleted(res: ResponseModel<JwtResponseModel>) {

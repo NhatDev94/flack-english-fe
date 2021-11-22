@@ -2,8 +2,13 @@ import { Observable } from 'rxjs';
 import {SoftwareBaseService} from './software-base.service';
 import {ResponseModel} from '../../../data/schema/response.model';
 import {JwtResponseModel} from '../../../data/schema/jwt-response.model';
+import { Injectable } from '@angular/core';
 
 const subUrl = '/api/v1/';
+
+@Injectable({
+    providedIn: 'root'
+  })
 
 export class AuthService extends SoftwareBaseService{
     public login(userName: String, password: String ): Observable<any>{
