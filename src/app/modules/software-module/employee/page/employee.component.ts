@@ -1,10 +1,11 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 import { AppAlert, AppLoading, AppModals } from '../../../../shared/utils';
 import { CompanyService } from '../../../../core/service/software/company.service';
 import { BaseSearchModel } from '../../../../data/schema/search/base-search.model';
 import { ResponseModel } from '../../../../data/schema/response.model';
 import { HTTP_CODE_CONSTANT } from '../../../../core/constant/http-code.constant';
 import { CompanyModel } from '../../../../data/schema/company.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -17,9 +18,13 @@ export class EmployeeComponent implements AfterViewInit {
     private modal: AppModals,
     private loading: AppLoading,
     private alert: AppAlert,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    // private route : ActivatedRoute,
   ) {
   }
+
+  // code: any = this.route.snapshot.params['id']
+  
 
   listCourse: any = [
     {
@@ -73,6 +78,8 @@ export class EmployeeComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.getCompanies();
+    // console.log(this.code);
+    
   }
 
   public deleteCompany(company: any) {
