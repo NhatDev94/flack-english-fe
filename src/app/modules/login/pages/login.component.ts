@@ -48,11 +48,13 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
 
   public login() {
     this.loading.show();
-    this.authServices.login(this.loginModel.username, this.loginModel.password).subscribe(res=>this.loginCompleted(res));
+    this.authServices.login(this.loginModel.username, this.loginModel.password).subscribe(res=> this.loginCompleted(res));
     // lay duoc user va pass nhung ko login duoc
   }
 
   private loginCompleted(res: ResponseModel<JwtResponseModel>) {
+    console.log(res);
+    // Khong login duoc -> comment doan nay lai
     this.loading.hide();
     if (res.status !== HTTP_CODE_CONSTANT.OK) {
       res.message.forEach(value => {
