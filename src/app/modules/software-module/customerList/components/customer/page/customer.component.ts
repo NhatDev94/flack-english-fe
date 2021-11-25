@@ -5,6 +5,7 @@ import { BaseSearchModel } from '../../../../../../data/schema/search/base-searc
 import { ResponseModel } from '../../../../../../data/schema/response.model';
 import { HTTP_CODE_CONSTANT } from '../../../../../../core/constant/http-code.constant';
 import { CompanyModel } from '../../../../../../data/schema/company.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-customer',
@@ -12,13 +13,22 @@ import { CompanyModel } from '../../../../../../data/schema/company.model';
 })
 export class CustomerComponent implements AfterViewInit {
   public search: BaseSearchModel<CompanyModel[]> = new BaseSearchModel<CompanyModel[]>();
-
+  public customerId: any
   constructor(
     private modal: AppModals,
     private loading: AppLoading,
     private alert: AppAlert,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private route: ActivatedRoute
   ) {
+  }
+
+  ngOnInit() {
+    if (this.route.snapshot.params['id']) {
+      this.customerId = this.route.snapshot.params['id']
+    }
+    console.log(this.customerId);
+    
   }
 
   listCourse: any = [

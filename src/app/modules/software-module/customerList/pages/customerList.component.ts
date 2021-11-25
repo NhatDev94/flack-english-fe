@@ -50,7 +50,7 @@ export class CustomerListComponent implements AfterViewInit {
       phoneNumber: '0963244816',
     },
     {
-      id: '3',
+      id: '4',
       userName: 'Vu Van Thanh Do',
       email: 'nhatdev94@gmail.com',
       birthday: '2021-01-01',
@@ -59,7 +59,7 @@ export class CustomerListComponent implements AfterViewInit {
       phoneNumber: '0963244816',
     },
     {
-      id: '3',
+      id: Math.random(),
       userName: 'Vu Van Thanh Do',
       email: 'nhatdev94@gmail.com',
       birthday: '2021-01-01',

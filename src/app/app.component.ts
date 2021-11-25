@@ -56,9 +56,9 @@ export class AppComponent implements OnInit {
 
   private handleAuthForEmployee(url: string, isIgnoreAuth: boolean) {
     if (!isIgnoreAuth) {
-      if (!this.hasPermission(url)) {
-        this.router.navigateByUrl('/403');
-      }
+      // if (!this.hasPermission(url)) {
+      //   this.router.navigateByUrl('/403');
+      // }
     }
   }
 
