@@ -16,6 +16,77 @@
   <!-- /.container-fluid -->
 </section>
 
+<!-- Control -->
+<style>
+  .control-item h6 {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .control-item input {
+    width: 100%;
+    padding: 6px 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    outline: none;
+  }
+
+  .control-action button {
+    font-size: 15px;
+    color: white;
+    padding: 5px 20px;
+    background: seagreen;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    margin-left: 20px;
+  }
+
+</style>
+<section class="control">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-8 control-content">
+        <div class="row justify-content-between pt-4 pb-4">
+          <div class="control-item col-3">
+            <h6>Email</h6>
+            <input type="email" placeholder="Email">
+          </div>
+          <div class="control-item col-3">
+            <h6>UserName</h6>
+            <input type="text" placeholder="UserName">
+          </div>
+          <div class="control-item col-3">
+            <h6>Birthday</h6>
+            <input type="date">
+          </div>
+        </div>
+        <div class="row justify-content-between pb-4">
+          <div class="control-item col-3">
+            <h6>CreatedDate</h6>
+            <input type="date">
+          </div>
+          <div class="control-item col-3">
+            <h6>LastUpdate</h6>
+            <input type="date">
+          </div>
+          <div class="control-item col-3">
+            <h6>PhoneNumber</h6>
+            <input type="text" placeholder="PhoneNumber">
+          </div>
+        </div>
+      </div>
+      <div class="col-4 control-action">
+        <div class="row justify-content-md-end pt-5">
+          <button class="search">Tìm</button>
+          <button class="new">Thêm mới</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Control -->
+
 <!-- Main content -->
 <section class="content">
   <div class="container-fluid">
@@ -54,7 +125,7 @@
                 <td routerLink="/employee/{{e.id}}">{{e.phoneNumber}}</td>
                 <td>
                   <app-dropdown-menu>
-                    <span (click)="updateCompanyComponent.show(e)" class="dropdown-item text-cyan">
+                    <span (click)="updateEmployeeComponent.show(e)" class="dropdown-item text-cyan">
                       <i class="far fa-edit"></i>
                       Sửa
                     </span>
@@ -79,7 +150,8 @@
 
   <app-add-company #addCompanyComponent (saveCompleteEvent)="saveCompanyCompleteEvent()"></app-add-company>
   <!-- /.modal-add -->
-  <app-update-company #updateCompanyComponent (saveCompleteEvent)="saveCompanyCompleteEvent()"></app-update-company>
+  <!-- <app-update-company #updateCompanyComponent (saveCompleteEvent)="saveCompanyCompleteEvent()"></app-update-company> -->
+  <app-update-employee #updateEmployeeComponent (saveCompleteEvent)="saveCompanyCompleteEvent()"></app-update-employee>
   <!-- /.modal-edit -->
 </section>
 <!-- /.content -->
