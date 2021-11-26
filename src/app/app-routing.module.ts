@@ -26,6 +26,16 @@ const routes: Routes = [
     ],
   },
   {
+    path: 'register',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./modules/register/register.module').then((m) => m.RegisterModule),
+      },
+    ],
+  },
+  {
     path: 'change-password',
     children: [
       {

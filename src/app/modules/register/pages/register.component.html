@@ -1,0 +1,158 @@
+<div class="register-box mx-auto">
+    <div class="register-logo">
+        <a href="#">
+        </a>
+    </div>
+    <div class="card">
+        <div class="card-body register-card-body">
+            <div style="text-align: center">
+                <img src="../../../../assets/img/logo-flack.png" style="width: 200px;" alt="Logo brand">
+
+                <!-- INPUT -->
+                <div class="input-group mb-3">
+                    <input (keypress)="enterEvent($event)" [(ngModel)]="registerModel.email" name="email" type="email"
+                        class="form-control" placeholder="Email" />
+                    <div class="input-group-append" style="width: 10%">
+                        <div class="input-group-text form-control">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- /End INPUT -->
+
+                <!-- INPUT UserName-->
+                <div class="input-group mb-3">
+                    <input (keypress)="enterEvent($event)" [(ngModel)]="registerModel.username" name="username" type="text"
+                        class="form-control" placeholder="UserName" />
+                    <!-- <div class="input-group-append" style="width: 10%">
+                        <div class="input-group-text form-control">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div> -->
+                </div>
+                <!-- /End INPUT -->
+
+                <!-- INPUT  FirstName -->
+                <div class="input-group mb-3">
+                    <input (keypress)="enterEvent($event)" [(ngModel)]="registerModel.firstName" name="firstName" type="text"
+                        class="form-control" placeholder="FirstName" />
+                    <!-- <div class="input-group-append" style="width: 10%">
+                        <div class="input-group-text form-control">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div> -->
+                </div>
+                <!-- /End INPUT -->
+
+                <!-- INPUT LastName -->
+                <div class="input-group mb-3">
+                    <input (keypress)="enterEvent($event)" [(ngModel)]="registerModel.lastName" name="lastName" type="text"
+                        class="form-control" placeholder="LastName" />
+                    <!-- <div class="input-group-append" style="width: 10%">
+                        <div class="input-group-text form-control">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div> -->
+                </div>
+                <!-- /End INPUT -->
+
+                <!-- INPUT birthday -->
+                <div class="input-group mb-3">
+                    <input (keypress)="enterEvent($event)" [(ngModel)]="registerModel.birthday" name="birthday" type="text"
+                        class="form-control" placeholder="Birthday" />
+                    <div class="input-group-append" style="width: 10%">
+                        <div class="input-group-text form-control">
+                            <span class="far fa-calendar-alt"></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- /End INPUT -->
+
+                <!-- INPUT phone number -->
+                <div class="input-group mb-3">
+                    <input (keypress)="enterEvent($event)" [(ngModel)]="registerModel.phoneNumber" name="phoneNumber" type="text"
+                        class="form-control" placeholder="PhoneNumber" />
+                    <div class="input-group-append" style="width: 10%">
+                        <div class="input-group-text form-control">
+                            <span class="fas fa-mobile-alt"></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- /End INPUT -->
+
+                <!-- INPUT -->
+                <div class="input-group mb-3">
+                    <input (keypress)="enterEvent($event)" [(ngModel)]="registerModel.password" class="form-control"
+                        id="login_password_input" name="password" placeholder="Password" type="password" />
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- /End INPUT -->
+
+                <div class="row submit-wrap">
+                    <button (click)="register()" class="btn btn-warning float-right">
+                        Đăng ký
+                    </button>
+                    <!-- <a href="#">Quên mật khẩu?</a> -->
+                    <!-- /.col -->
+                </div>
+                <div class="row to-login">
+                    <span>Đã có tài khoản?</span>
+                    <a routerLink="/login">Đăng Nhập</a>
+                </div>
+            </div>
+        </div>
+        <!-- /.login-card-body -->
+    </div>
+</div>
+
+<style>
+    .register-box .register-card-body {
+        border-radius: 5px;
+    }
+
+    .submit-wrap {
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 20px;
+    }
+
+    .submit-wrap button {
+        width: 100%;
+        padding: 9px 20px;
+        border: none;
+        border-radius: 3px;
+        background: #FFB800;
+        outline: none;
+        margin-bottom: 50px;
+    }
+
+    .submit-wrap a {
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    .submit-wrap a:hover {
+        text-decoration: underline;
+    }
+
+    .submit-wrap button:hover {
+        background: #dd9f04;
+    }
+
+    .to-login {
+        margin-top: 40px;
+        justify-content: center;
+    }
+
+    .to-login a {
+        margin-left: 10px;
+        color: #DD4C0D;
+    }
+
+    .to-login a:hover {
+        text-decoration: underline;
+    }
+</style>

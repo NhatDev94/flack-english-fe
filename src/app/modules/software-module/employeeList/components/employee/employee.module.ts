@@ -7,7 +7,7 @@ import { EmployeeComponent } from './page/employee.component';
 
 const COMPONENTS = [
   AppAddCompanyComponent,
-  AppUpdateCompanyComponent
+  AppUpdateCompanyComponent,
 ];
 
 export const routes: Routes = [

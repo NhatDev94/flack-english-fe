@@ -15,4 +15,8 @@ export class AuthService extends SoftwareBaseService{
         const user = {userName: userName, password: password};
         return this.post(subUrl + 'auth/login', user);
     }
+
+    public register(user: Object): Observable<any>{
+        return this.post(subUrl + 'auth/register', user);
+    }
 }
