@@ -1,13 +1,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {SharedModule} from '../../../shared/shared.module';
-import {EmployeeListComponent} from './pages/employeeList.component';
 import {AppAddCompanyComponent} from './components/add-company/app-add-company.component';
 import {AppUpdateCompanyComponent} from './components/update-company/app-update-company.component';
+import { EmployeeListComponent } from './pages/employeeList.component';
 
 const COMPONENTS = [
   AppAddCompanyComponent,
-  AppUpdateCompanyComponent,
+  AppUpdateCompanyComponent
 ];
 
 export const routes: Routes = [
@@ -15,7 +15,6 @@ export const routes: Routes = [
     path: '',
     component: EmployeeListComponent
   },
-
   {
     path: ':id',
     children: [

@@ -13,21 +13,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EmployeeComponent implements AfterViewInit {
   public search: BaseSearchModel<CompanyModel[]> = new BaseSearchModel<CompanyModel[]>();
-  public employeeId: any
+  public customerId: any
   constructor(
     private modal: AppModals,
     private loading: AppLoading,
     private alert: AppAlert,
     private companyService: CompanyService,
     private route: ActivatedRoute
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     if (this.route.snapshot.params['id']) {
-      this.employeeId = this.route.snapshot.params['id']
+      this.customerId = this.route.snapshot.params['id']
     }
+    console.log(this.customerId);
+    
   }
-
 
   listCourse: any = [
     {
@@ -81,7 +83,6 @@ export class EmployeeComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.getCompanies();
-    
   }
 
   public deleteCompany(company: any) {

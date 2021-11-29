@@ -1,12 +1,12 @@
-<app-modal-wrapper #appModalWrapper title="Thêm mới Employee">
+<app-modal-wrapper #appModalWrapper title="Thêm mói customer">
   <div class="modal-body" id="add-company-modal">
     <div class="row">
       <div class="col-md-4 form-group">
-        <label for="add_company_first_name">Tên nhân viên <span class="text-red">*</span></label>
+        <label for="add_company_first_name">UserName <span class="text-red">*</span></label>
         <input (change)="companyNameChange()" [(ngModel)]="company.name" class="form-control"
                id="add_company_first_name"
                name="firstName"
-               placeholder="Tên nhân viên" type="text"/>
+               placeholder="UserName" type="text"/>
       </div>
       <div class="col-md-4 form-group">
         <label for="add_company_last_name">Email <span class="text-red">*</span></label>
@@ -27,13 +27,13 @@
       </div>
       <div class="col-md-4 form-group">
         <label for="add_company_email">LastUpdate <span class="text-red">*</span></label>
-        <input [(ngModel)]="company.email" class="form-control" id="add_company_email" name="email"
+        <input [(ngModel)]="company.email" class="form-control" id="add_company_email" name="email" placeholder="LastUpdate"
                type="email"/>
       </div>
       <div class="col-md-4 form-group">
         <label for="add_company_pass">PhoneNumber <span class="text-red">*</span></label>
         <input [(ngModel)]="company.password" class="form-control" id="add_company_pass" name="password"
-               placeholder="Mật khẩu" type="password"/>
+               placeholder="PhoneNumber" type="password"/>
       </div>
     </div>
   </div>

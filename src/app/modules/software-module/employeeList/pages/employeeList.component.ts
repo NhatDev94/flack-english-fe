@@ -21,10 +21,10 @@ export class EmployeeListComponent implements AfterViewInit {
   ) {
   }
 
-  employees: any = [
+  customer: any = [
     {
       id: '1',
-      userName: 'Nhat',
+      userName: 'Nguyen Van Nhat',
       email: 'nhatdev94@gmail.com',
       birthday: '2021-01-01',
       createdDate: '2021-01-01',
@@ -33,7 +33,7 @@ export class EmployeeListComponent implements AfterViewInit {
     },
     {
       id: '2',
-      userName: 'Nhat',
+      userName: 'Le Van Truong',
       email: 'nhatdev94@gmail.com',
       birthday: '2021-01-01',
       createdDate: '2021-01-01',
@@ -42,7 +42,7 @@ export class EmployeeListComponent implements AfterViewInit {
     },
     {
       id: '3',
-      userName: 'Nhat',
+      userName: 'Vu Van Thanh Do',
       email: 'nhatdev94@gmail.com',
       birthday: '2021-01-01',
       createdDate: '2021-01-01',
@@ -51,13 +51,23 @@ export class EmployeeListComponent implements AfterViewInit {
     },
     {
       id: '4',
-      userName: 'Nhat',
+      userName: 'Vu Van Thanh Do',
       email: 'nhatdev94@gmail.com',
       birthday: '2021-01-01',
       createdDate: '2021-01-01',
       lastUpdate: '2021-09-22',
       phoneNumber: '0963244816',
     },
+    {
+      id: Math.random(),
+      userName: 'Vu Van Thanh Do',
+      email: 'nhatdev94@gmail.com',
+      birthday: '2021-01-01',
+      createdDate: '2021-01-01',
+      lastUpdate: '2021-09-22',
+      phoneNumber: '0963244816',
+    },
+    
   ]
 
   ngAfterViewInit() {
