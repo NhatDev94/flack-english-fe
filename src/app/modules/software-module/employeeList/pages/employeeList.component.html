@@ -45,7 +45,7 @@
               </thead>
               <tbody>
               <!-- <tr *ngFor="let e of search.result"> -->
-              <tr *ngFor="let e of customer">
+              <tr *ngFor="let e of search.result">
                 <td routerLink="/employee/{{e.id}}">{{e.userName}}</td>
                 <td routerLink="/employee/{{e.id}}">{{e.email}}</td>
                 <td routerLink="/employee/{{e.id}}">{{e.birthday}}</td>
@@ -58,7 +58,7 @@
                       <i class="far fa-edit"></i>
                       Sửa
                     </span>
-                    <span (click)="deleteCompany(e)" class="dropdown-item text-red">
+                    <span (click)="deleteEmployee(e)" class="dropdown-item text-red">
                       <i class="far fa-trash-alt mr-1"></i>
                       Xoá
                     </span>

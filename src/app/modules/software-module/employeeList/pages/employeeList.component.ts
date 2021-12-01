@@ -1,23 +1,23 @@
 import {AfterViewInit, Component} from '@angular/core';
 import {AppAlert, AppLoading, AppModals} from '../../../../shared/utils';
-import {CompanyService} from '../../../../core/service/software/company.service';
+import {EmployeeService} from '../../../../core/service/software/employee.service';
 import {BaseSearchModel} from '../../../../data/schema/search/base-search.model';
 import {ResponseModel} from '../../../../data/schema/response.model';
 import {HTTP_CODE_CONSTANT} from '../../../../core/constant/http-code.constant';
-import {CompanyModel} from '../../../../data/schema/company.model';
+import {EmployeeModel} from '../../../../data/schema/employee.model';
 
 @Component({
   selector: 'app-employeeList',
   templateUrl: './employeeList.component.html',
 })
 export class EmployeeListComponent implements AfterViewInit {
-  public search: BaseSearchModel<CompanyModel[]> = new BaseSearchModel<CompanyModel[]>();
+  public search: BaseSearchModel<EmployeeModel[]> = new BaseSearchModel<EmployeeModel[]>();
 
   constructor(
     private modal: AppModals,
     private loading: AppLoading,
     private alert: AppAlert,
-    private companyService: CompanyService
+    private employeeService: EmployeeService
   ) {
   }
 
@@ -71,31 +71,31 @@ export class EmployeeListComponent implements AfterViewInit {
   ]
 
   ngAfterViewInit() {
-    this.getCompanies();
+    this.getEmployees();
   }
 
-  public deleteCompany(company: any) {
-    this.modal.confirm('Bạn có muốn xoá công ty?', 'Xác nhận').subscribe(res => this.confirmDeleteCompany(res, company));
+  public deleteEmployee(employee: any) {
+    this.modal.confirm('Bạn có muốn xoá nhân viên?', 'Xác nhận').subscribe(res => this.confirmDeleteEmployee(res, employee));
   }
 
   public saveCompanyCompleteEvent() {
     this.search.currentPage = 0;
-    this.getCompanies();
+    this.getEmployees();
   }
 
-  public dataTableChange(searchChange: BaseSearchModel<CompanyModel[]>) {
+  public dataTableChange(searchChange: BaseSearchModel<EmployeeModel[]>) {
     this.search = searchChange;
-    this.getCompanies();
+    this.getEmployees();
   }
 
-  private confirmDeleteCompany(state: boolean, company: CompanyModel) {
+  private confirmDeleteEmployee(state: boolean, employee: EmployeeModel) {
     if (state) {
       this.loading.show();
-      this.companyService.deleteCompany(company.id).subscribe(res => this.confirmDeleteCompanyCompleted(res));
+      this.employeeService.deleteEmployee(employee.id).subscribe(res => this.confirmDeleteEmployeeCompleted(res));
     }
   }
 
-  private confirmDeleteCompanyCompleted(res: ResponseModel<any>) {
+  private confirmDeleteEmployeeCompleted(res: ResponseModel<any>) {
     this.loading.hide();
     if (res.status !== HTTP_CODE_CONSTANT.OK) {
       res.message.forEach(value => {
@@ -105,15 +105,15 @@ export class EmployeeListComponent implements AfterViewInit {
     }
 
     this.alert.success(res.message[0]);
-    this.getCompanies();
+    this.getEmployees();
   }
 
-  private getCompanies() {
+  private getEmployees() {
     this.loading.show();
-    this.companyService.find(this.search).subscribe(res => this.getCompaniesCompleted(res));
+    this.employeeService.find(this.search).subscribe(res => this.getEmployeesCompleted(res));
   }
 
-  private getCompaniesCompleted(res: ResponseModel<BaseSearchModel<CompanyModel[]>>) {
+  private getEmployeesCompleted(res: ResponseModel<BaseSearchModel<EmployeeModel[]>>) {
     this.loading.hide();
     if (res.status !== HTTP_CODE_CONSTANT.OK) {
       res.message.forEach(value => {
@@ -123,5 +123,7 @@ export class EmployeeListComponent implements AfterViewInit {
     }
 
     this.search = res.result;
+    console.log(this.search);
+    
   }
 }
