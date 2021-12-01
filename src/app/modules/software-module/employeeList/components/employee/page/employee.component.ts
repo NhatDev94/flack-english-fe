@@ -4,70 +4,35 @@ import { CompanyService } from '../../../../../../core/service/software/company.
 import { BaseSearchModel } from '../../../../../../data/schema/search/base-search.model';
 import { ResponseModel } from '../../../../../../data/schema/response.model';
 import { HTTP_CODE_CONSTANT } from '../../../../../../core/constant/http-code.constant';
-import { CompanyModel } from '../../../../../../data/schema/company.model';
+import { EmployeeModel } from '../../../../../../data/schema/employee.model';
 import { ActivatedRoute } from '@angular/router';
+import { EmployeeService} from '../../../../../../core/service/software/employee.service'
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
 })
 export class EmployeeComponent implements AfterViewInit {
-  public search: BaseSearchModel<CompanyModel[]> = new BaseSearchModel<CompanyModel[]>();
-  public customerId: any
+  public search: BaseSearchModel<EmployeeModel[]> = new BaseSearchModel<EmployeeModel[]>();
+  public employeeId: any
+  public employee: any
   constructor(
     private modal: AppModals,
     private loading: AppLoading,
     private alert: AppAlert,
     private companyService: CompanyService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private employeeService: EmployeeService
   ) {
   }
 
   ngOnInit() {
     if (this.route.snapshot.params['id']) {
-      this.customerId = this.route.snapshot.params['id']
+      this.employeeId = this.route.snapshot.params['id']
     }
-    console.log(this.customerId);
-    
   }
 
-  listCourse: any = [
-    {
-      id: '1',
-      course: 'TOIC',
-      timeFavorite: '9h',
-      timeTotal: '322',
-      wordTotal: '1200'
-    },
-    {
-      id: '2',
-      course: 'TOIC',
-      timeFavorite: '9h',
-      timeTotal: '322',
-      wordTotal: '1200'
-    },
-    {
-      id: '3',
-      course: 'TOIC',
-      timeFavorite: '9h',
-      timeTotal: '322',
-      wordTotal: '1200'
-    },
-    {
-      id: '4',
-      course: 'TOIC',
-      timeFavorite: '9h',
-      timeTotal: '322',
-      wordTotal: '1200'
-    },
-    {
-      id: '5',
-      course: 'TOIC',
-      timeFavorite: '9h',
-      timeTotal: '322',
-      wordTotal: '1200'
-    },
-  ]
+  listCourse: any = []
 
   customer: any = [
     {
@@ -83,6 +48,12 @@ export class EmployeeComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.getCompanies();
+    console.log('asdas');
+    
+    this.employeeService.getEmployeeById(this.employeeId).subscribe(res => this.getEmployeesCompleted(res))
+    // Chuaw duoc
+    // 1. loi message null
+    // 2. GET tra ve 400
   }
 
   public deleteCompany(company: any) {
@@ -94,12 +65,12 @@ export class EmployeeComponent implements AfterViewInit {
     this.getCompanies();
   }
 
-  public dataTableChange(searchChange: BaseSearchModel<CompanyModel[]>) {
+  public dataTableChange(searchChange: BaseSearchModel<EmployeeModel[]>) {
     this.search = searchChange;
     this.getCompanies();
   }
 
-  private confirmDeleteCompany(state: boolean, company: CompanyModel) {
+  private confirmDeleteCompany(state: boolean, company: EmployeeModel) {
     if (state) {
       this.loading.show();
       this.companyService.deleteCompany(company.id).subscribe(res => this.confirmDeleteCompanyCompleted(res));
@@ -121,10 +92,10 @@ export class EmployeeComponent implements AfterViewInit {
 
   private getCompanies() {
     this.loading.show();
-    this.companyService.find(this.search).subscribe(res => this.getCompaniesCompleted(res));
+    this.employeeService.find(this.search).subscribe(res => this.getEmployeesCompleted(res));
   }
 
-  private getCompaniesCompleted(res: ResponseModel<BaseSearchModel<CompanyModel[]>>) {
+  private getEmployeesCompleted(res: ResponseModel<BaseSearchModel<EmployeeModel[]>>) {
     this.loading.hide();
     if (res.status !== HTTP_CODE_CONSTANT.OK) {
       res.message.forEach(value => {
@@ -132,7 +103,7 @@ export class EmployeeComponent implements AfterViewInit {
       });
       return;
     }
-
     this.search = res.result;
+
   }
 }

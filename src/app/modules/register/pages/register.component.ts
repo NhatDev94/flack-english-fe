@@ -36,6 +36,7 @@ export class RegisterComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
+   
   }
 
   ngOnDestroy() {}
@@ -47,7 +48,6 @@ export class RegisterComponent implements AfterViewInit, OnDestroy {
   }
 
   public register() {
-    console.log(this.registerModel);
     this.loading.show();
     this.authServices.register(this.registerModel).subscribe(res=> this.registerCompleted(res));
   }
@@ -60,8 +60,6 @@ export class RegisterComponent implements AfterViewInit, OnDestroy {
     //   });
     //   return;
     // }
-
-    // Loi khong message undefine
 
     // const user = res.result.user;
     // localStorage.setItem(AUTH_CONSTANT.USER_DATA, JSON.stringify(user));

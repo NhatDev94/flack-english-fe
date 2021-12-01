@@ -1,12 +1,12 @@
 import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
 import {AppModalWrapperComponent} from '../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';
-import {CustomerModel} from '../../../../../data/schema/customer.model';
+import {EmployeeModel} from '../../../../../data/schema/employee.model';
 import {ResponseModel} from '../../../../../data/schema/response.model';
 import {HTTP_CODE_CONSTANT} from '../../../../../core/constant/http-code.constant';
 import {AppAlert, AppLoading} from '../../../../../shared/utils';
-import {CustomerService} from '../../../../../core/service/software/customer.service';
 import {AppValidation} from '../../../../../shared/utils/app-validation';
 import {AppCommon} from '../../../../../shared/utils/app-common';
+import { EmployeeService } from 'src/app/core/service/software/employee.service';
 
 @Component({
   selector: 'app-update-company',
@@ -16,19 +16,19 @@ export class AppUpdateCompanyComponent {
 
   @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('appModalWrapper', {static: true}) appModalWrapper: AppModalWrapperComponent;
-  public company: CustomerModel = new CustomerModel();
+  public employee: EmployeeModel = new EmployeeModel();
 
   constructor(
     private alert: AppAlert,
     private loading: AppLoading,
-    private customerService: CustomerService,
+    private employeeService: EmployeeService,
     private validation: AppValidation,
     private appCommon: AppCommon
   ) {
   }
 
-  public show(company: CustomerModel) {
-    this.company = new CustomerModel(company);
+  public show(employee: EmployeeModel) {
+    this.employee = new EmployeeModel(employee);
     this.appModalWrapper.show();
   }
 
@@ -46,11 +46,12 @@ export class AppUpdateCompanyComponent {
   public saveCompany() {
     this.loading.show();
     // this.company.phone = this.appCommon.getPhoneNumber(this.company.phone);
-    this.customerService.update(this.company).subscribe(res => this.saveCompanyCompleted(res));
-    // Phai sua trong companyService nua
+    // Hoi Nhân hướng dẫn convert dâta
+    this.employeeService.update(this.employee).subscribe(res => this.saveEmployeeCompleted(res));
+
   }
 
-  private saveCompanyCompleted(res: ResponseModel<CustomerModel>) {
+  private saveEmployeeCompleted(res: ResponseModel<EmployeeModel>) {
     this.loading.hide();
     if (res.status !== HTTP_CODE_CONSTANT.OK) {
       res.message.forEach(value => {

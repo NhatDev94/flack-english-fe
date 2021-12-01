@@ -31,4 +31,8 @@ export class EmployeeService extends SoftwareBaseService {
   public deleteEmployee(employeeId: string): Observable<any> {
     return this.delete(`/api/v1/employee/${employeeId}`);
   }
+
+  public getEmployeeById(id: any) {
+    return this.get('/api/v1/employee/getById', {});
+  }
 }

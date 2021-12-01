@@ -24,6 +24,8 @@ export class AppAddCompanyComponent {
     private validation: AppValidation,
     private appCommon: AppCommon
   ) {
+    console.log(this.employee);
+    
   }
 
   public show() {
@@ -42,14 +44,16 @@ export class AppAddCompanyComponent {
   //   }
   // }
 
-  public saveCompany() {
+  public saveEmployee() {
+    this.employee.id = Math.random() + ''
+    
     // if (!this.validation.validatePassword(this.employee.password)) {
     //   this.alert.error('Mật khẩu phải có nhiều hơn 6 kí tụ, có ít nhất 1 ký tự in hoa và 1 ký tự số');
     //   return;
     // }
     this.loading.show();
 
-    this.employee.phoneNumber = this.appCommon.getPhoneNumber(this.employee.phoneNumber);
+    // this.employee.phoneNumber = this.appCommon.getPhoneNumber(this.employee.phoneNumber);
     this.employeeService.save(this.employee).subscribe(res => this.saveEmployeeCompleted(res));
   }
 

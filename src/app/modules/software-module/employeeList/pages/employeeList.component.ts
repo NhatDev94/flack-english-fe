@@ -123,7 +123,5 @@ export class EmployeeListComponent implements AfterViewInit {
     }
 
     this.search = res.result;
-    console.log(this.search);
-    
   }
 }
