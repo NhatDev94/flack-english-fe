@@ -5,37 +5,38 @@
         <label for="update_company_first_name">UserName <span class="text-red">*</span></label>
         <input [(ngModel)]="employee.userName" class="form-control"
                id="update_company_first_name"
-               name="firstName"
+               name=""
                placeholder="UserName" type="text"/>
       </div>
       <div class="col-md-4 form-group">
-        <label for="update_company_last_name">Email <span class="text-red">*</span></label>
-        <input [(ngModel)]="employee.email" class="form-control" id="update_company_last_name" name="lastName"
-               placeholder="Email" type="text"/>
+        <label for="update_company_email">FirstName</label>
+        <input [(ngModel)]="employee.firstName" class="form-control" id="update_company_email" name=""
+               placeholder="FirstName"
+               type="text"/>
       </div>
       <div class="col-md-4 form-group">
-        <label for="update_company_address">Birthday <span class="text-red">*</span></label>
-        <input [(ngModel)]="employee.birthday" class="form-control" id="update_company_address" name="address"
-               placeholder="Birthday" type="text"/>
+        <label for="update_company_email">LastName</label>
+        <input [(ngModel)]="employee.lastName" class="form-control" id="update_company_email" name=""
+               placeholder="LastName"
+               type="text"/>
       </div>
     </div>
     <div class="row">
       <div class="col-md-4 form-group">
-        <label>CreatedDdate <span class="text-red">*</span></label>
-        <app-input-mask [(ngModel)]="employee.createdDate"
+        <label for="update_company_address">Password <span class="text-red">*</span></label>
+        <app-input-mask [(ngModel)]="newPassword"
                         [classes]="'form-control adi-phone-input-mask'"></app-input-mask>
       </div>
       <div class="col-md-4 form-group">
-        <label for="update_company_email">LastUpdate</label>
-        <input [(ngModel)]="employee.lastUpdate" class="form-control" id="update_company_email" name="email"
-               placeholder="LastUpdate"
-               type="email"/>
+        <label for="update_company_address">Birthday <span class="text-red">*</span></label>
+        <input [(ngModel)]="employee.birthday" class="form-control" id="update_company_address" name=""
+               placeholder="Birthday" type="text"/>
       </div>
       <div class="col-md-4 form-group">
         <label for="update_company_email">PhoneNumber</label>
-        <input [(ngModel)]="employee.phoneNumber" class="form-control" id="update_company_email" name="email"
+        <input [(ngModel)]="employee.phoneNumber" class="form-control" id="update_company_email" name=""
                placeholder="PhoneNumber"
-               type="email"/>
+               type="text"/>
       </div>
     </div>
   </div>

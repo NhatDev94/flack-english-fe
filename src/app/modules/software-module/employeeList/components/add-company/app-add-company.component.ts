@@ -45,14 +45,13 @@ export class AppAddCompanyComponent {
   // }
 
   public saveEmployee() {
-    this.employee.id = Math.random() + ''
-    
-    // if (!this.validation.validatePassword(this.employee.password)) {
-    //   this.alert.error('Mật khẩu phải có nhiều hơn 6 kí tụ, có ít nhất 1 ký tự in hoa và 1 ký tự số');
-    //   return;
-    // }
-    this.loading.show();
 
+    if (!this.validation.validatePassword(this.employee.password)) {
+      this.alert.error('Mật khẩu phải có nhiều hơn 6 kí tụ, có ít nhất 1 ký tự in hoa và 1 ký tự số');
+      return;
+    }
+    this.loading.show();
+    // Chua chuyen dinh dang ngay thang nam
     // this.employee.phoneNumber = this.appCommon.getPhoneNumber(this.employee.phoneNumber);
     this.employeeService.save(this.employee).subscribe(res => this.saveEmployeeCompleted(res));
   }

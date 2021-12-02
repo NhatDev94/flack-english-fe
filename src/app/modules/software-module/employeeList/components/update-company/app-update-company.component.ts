@@ -17,6 +17,7 @@ export class AppUpdateCompanyComponent {
   @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('appModalWrapper', {static: true}) appModalWrapper: AppModalWrapperComponent;
   public employee: EmployeeModel = new EmployeeModel();
+  public newPassword: any
 
   constructor(
     private alert: AppAlert,
@@ -36,15 +37,17 @@ export class AppUpdateCompanyComponent {
     this.appModalWrapper.hide();
   }
 
-  public companyNameChange() {
-    // if (this.company.name) {
-    //   const nameSlug = this.company.name.trim().toLocaleLowerCase().replace(/ /g, '-');
-    //   this.company.nameSlug = nameSlug;
-    // }
-  }
+  // public companyNameChange() {
+  //   // if (this.company.name) {
+  //   //   const nameSlug = this.company.name.trim().toLocaleLowerCase().replace(/ /g, '-');
+  //   //   this.company.nameSlug = nameSlug;
+  //   // }
+  // }
 
   public saveCompany() {
     this.loading.show();
+    // chua thay doi pass duoc
+    // this.employee.password = this.newPassword
     // this.company.phone = this.appCommon.getPhoneNumber(this.company.phone);
     // Hoi Nhân hướng dẫn convert dâta
     this.employeeService.update(this.employee).subscribe(res => this.saveEmployeeCompleted(res));
