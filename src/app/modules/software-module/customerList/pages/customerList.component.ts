@@ -1,23 +1,23 @@
 import {AfterViewInit, Component} from '@angular/core';
 import {AppAlert, AppLoading, AppModals} from '../../../../shared/utils';
-import {CompanyService} from '../../../../core/service/software/company.service';
+import {CustomerService} from '../../../../core/service/software/customer.service';
 import {BaseSearchModel} from '../../../../data/schema/search/base-search.model';
 import {ResponseModel} from '../../../../data/schema/response.model';
 import {HTTP_CODE_CONSTANT} from '../../../../core/constant/http-code.constant';
-import {CompanyModel} from '../../../../data/schema/company.model';
+import {CustomerModel} from '../../../../data/schema/customer.model';
 
 @Component({
   selector: 'app-customerList',
   templateUrl: './customerList.component.html',
 })
 export class CustomerListComponent implements AfterViewInit {
-  public search: BaseSearchModel<CompanyModel[]> = new BaseSearchModel<CompanyModel[]>();
+  public search: BaseSearchModel<CustomerModel[]> = new BaseSearchModel<CustomerModel[]>();
 
   constructor(
     private modal: AppModals,
     private loading: AppLoading,
     private alert: AppAlert,
-    private companyService: CompanyService
+    private customerService: CustomerService
   ) {
   }
 
@@ -71,31 +71,31 @@ export class CustomerListComponent implements AfterViewInit {
   ]
 
   ngAfterViewInit() {
-    this.getCompanies();
+    this.getCustomer();
   }
 
-  public deleteCompany(company: any) {
-    this.modal.confirm('Bạn có muốn xoá công ty?', 'Xác nhận').subscribe(res => this.confirmDeleteCompany(res, company));
+  public deleteCustomer(customer: any) {
+    this.modal.confirm('Bạn có muốn xoá công ty?', 'Xác nhận').subscribe(res => this.confirmDeleteCustomer(res, customer));
   }
 
-  public saveCompanyCompleteEvent() {
+  public saveCustomerCompleteEvent() {
     this.search.currentPage = 0;
-    this.getCompanies();
+    this.getCustomer();
   }
 
-  public dataTableChange(searchChange: BaseSearchModel<CompanyModel[]>) {
+  public dataTableChange(searchChange: BaseSearchModel<CustomerModel[]>) {
     this.search = searchChange;
-    this.getCompanies();
+    this.getCustomer();
   }
 
-  private confirmDeleteCompany(state: boolean, company: CompanyModel) {
+  private confirmDeleteCustomer(state: boolean, customer: CustomerModel) {
     if (state) {
       this.loading.show();
-      this.companyService.deleteCompany(company.id).subscribe(res => this.confirmDeleteCompanyCompleted(res));
+      this.customerService.deleteCustomer(customer.id).subscribe(res => this.confirmDeleteCustomerCompleted(res));
     }
   }
 
-  private confirmDeleteCompanyCompleted(res: ResponseModel<any>) {
+  private confirmDeleteCustomerCompleted(res: ResponseModel<any>) {
     this.loading.hide();
     if (res.status !== HTTP_CODE_CONSTANT.OK) {
       res.message.forEach(value => {
@@ -105,15 +105,15 @@ export class CustomerListComponent implements AfterViewInit {
     }
 
     this.alert.success(res.message[0]);
-    this.getCompanies();
+    this.getCustomer();
   }
 
-  private getCompanies() {
+  private getCustomer() {
     this.loading.show();
-    this.companyService.find(this.search).subscribe(res => this.getCompaniesCompleted(res));
+    this.customerService.find(this.search).subscribe(res => this.getCustomerCompleted(res));
   }
 
-  private getCompaniesCompleted(res: ResponseModel<BaseSearchModel<CompanyModel[]>>) {
+  private getCustomerCompleted(res: ResponseModel<BaseSearchModel<CustomerModel[]>>) {
     this.loading.hide();
     if (res.status !== HTTP_CODE_CONSTANT.OK) {
       res.message.forEach(value => {
@@ -123,5 +123,7 @@ export class CustomerListComponent implements AfterViewInit {
     }
 
     this.search = res.result;
+    console.log(this.search);
+    
   }
 }

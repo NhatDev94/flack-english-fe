@@ -21,54 +21,6 @@ export class EmployeeListComponent implements AfterViewInit {
   ) {
   }
 
-  customer: any = [
-    {
-      id: '1',
-      userName: 'Nguyen Van Nhat',
-      email: 'nhatdev94@gmail.com',
-      birthday: '2021-01-01',
-      createdDate: '2021-01-01',
-      lastUpdate: '2021-09-22',
-      phoneNumber: '0963244816',
-    },
-    {
-      id: '2',
-      userName: 'Le Van Truong',
-      email: 'nhatdev94@gmail.com',
-      birthday: '2021-01-01',
-      createdDate: '2021-01-01',
-      lastUpdate: '2021-09-22',
-      phoneNumber: '0963244816',
-    },
-    {
-      id: '3',
-      userName: 'Vu Van Thanh Do',
-      email: 'nhatdev94@gmail.com',
-      birthday: '2021-01-01',
-      createdDate: '2021-01-01',
-      lastUpdate: '2021-09-22',
-      phoneNumber: '0963244816',
-    },
-    {
-      id: '4',
-      userName: 'Vu Van Thanh Do',
-      email: 'nhatdev94@gmail.com',
-      birthday: '2021-01-01',
-      createdDate: '2021-01-01',
-      lastUpdate: '2021-09-22',
-      phoneNumber: '0963244816',
-    },
-    {
-      id: Math.random(),
-      userName: 'Vu Van Thanh Do',
-      email: 'nhatdev94@gmail.com',
-      birthday: '2021-01-01',
-      createdDate: '2021-01-01',
-      lastUpdate: '2021-09-22',
-      phoneNumber: '0963244816',
-    },
-    
-  ]
 
   ngAfterViewInit() {
     this.getEmployees();

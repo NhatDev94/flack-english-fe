@@ -21,13 +21,13 @@
                       <p>LastUpdate</p>
                       <p>PhoneNumber</p>
                     </div>
-                    <div class="info-content" *ngFor="let e of customer">
-                      <p>{{e.userName}}</p>
-                      <p>{{e.email}}</p>
-                      <p>{{e.birthday}}</p>
-                      <p>{{e.createdDate}}</p>
-                      <p>{{e.lastUpdate}}</p>
-                      <p>{{e.phoneNumber}}</p>
+                    <div class="info-content">
+                      <p>{{employee && employee.userName}}</p>
+                      <p>{{employee && employee.email}}</p>
+                      <p>{{employee && employee.birthday}}</p>
+                      <p>{{employee && employee.createdDate}}</p>
+                      <p>{{employee && employee.lastUpdate}}</p>
+                      <p>{{employee && employee.phoneNumber}}</p>
                     </div>
                   </div>
                 </div>

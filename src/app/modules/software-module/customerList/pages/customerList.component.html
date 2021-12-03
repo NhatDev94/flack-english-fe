@@ -45,7 +45,7 @@
               </thead>
               <tbody>
               <!-- <tr *ngFor="let e of search.result"> -->
-              <tr *ngFor="let e of customer">
+              <tr *ngFor="let e of search.result">
                 <td routerLink="/customer/{{e.id}}">{{e.userName}}</td>
                 <td routerLink="/customer/{{e.id}}">{{e.email}}</td>
                 <td routerLink="/customer/{{e.id}}">{{e.birthday}}</td>
@@ -58,7 +58,7 @@
                       <i class="far fa-edit"></i>
                       Sửa
                     </span>
-                    <span (click)="deleteCompany(e)" class="dropdown-item text-red">
+                    <span (click)="deleteCustomer(e)" class="dropdown-item text-red">
                       <i class="far fa-trash-alt mr-1"></i>
                       Xoá
                     </span>
@@ -77,9 +77,9 @@
     <!-- /.row -->
   </div>
 
-  <app-add-company #addCompanyComponent (saveCompleteEvent)="saveCompanyCompleteEvent()"></app-add-company>
+  <app-add-company #addCompanyComponent (saveCompleteEvent)="saveCustomerCompleteEvent()"></app-add-company>
   <!-- /.modal-add -->
-  <app-update-company #updateCompanyComponent (saveCompleteEvent)="saveCompanyCompleteEvent()"></app-update-company>
+  <app-update-company #updateCompanyComponent (saveCompleteEvent)="saveCustomerCompleteEvent()"></app-update-company>
   <!-- /.modal-edit -->
 </section>
 <!-- /.content -->

@@ -15,7 +15,7 @@ import { EmployeeService} from '../../../../../../core/service/software/employee
 export class EmployeeComponent implements AfterViewInit {
   public search: BaseSearchModel<EmployeeModel[]> = new BaseSearchModel<EmployeeModel[]>();
   public employeeId: any
-  public employee: any
+  public employee: EmployeeModel
   constructor(
     private modal: AppModals,
     private loading: AppLoading,
@@ -32,28 +32,11 @@ export class EmployeeComponent implements AfterViewInit {
     }
   }
 
-  listCourse: any = []
 
-  customer: any = [
-    {
-      id: '1',
-      userName: 'Nguyen Van Nhat',
-      email: 'nhatdev94@gmail.com',
-      birthday: '1994-09-21',
-      createdDate: '2021-11-22',
-      lastUpdate: '2021-12-02',
-      phoneNumber: '0963244816'
-    }
-  ]
+  listCourse: any = []
 
   ngAfterViewInit() {
     this.getCompanies();
-    console.log('asdas');
-    
-    this.employeeService.getEmployeeById(this.employeeId).subscribe(res => this.getEmployeesCompleted(res))
-    // Chuaw duoc
-    // 1. loi message null
-    // 2. GET tra ve 400
   }
 
   public deleteCompany(company: any) {
@@ -103,7 +86,9 @@ export class EmployeeComponent implements AfterViewInit {
       });
       return;
     }
-    this.search = res.result;
-
+    this.search = res.result;    
+    this.search.result.map(item => {
+      if (item.id === this.employeeId) this.employee = item
+    })
   }
 }

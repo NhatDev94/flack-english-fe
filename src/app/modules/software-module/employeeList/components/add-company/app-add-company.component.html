@@ -32,8 +32,8 @@
       </div>
       <div class="col-md-4 form-group">
         <label for="add_company_pass">Birthday <span class="text-red">*</span></label>
-        <app-input-mask [(ngModel)]="employee.birthday"
-                        [classes]="'form-control adi-phone-input-mask'"></app-input-mask>
+        <input [(ngModel)]="employee.birthday" class="form-control" id="add_company_pass" name="birthday"
+               placeholder="Birthday" type="date"/>
       </div>
     </div>
     <div class="row">

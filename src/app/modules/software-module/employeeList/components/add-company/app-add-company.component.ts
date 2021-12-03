@@ -24,7 +24,9 @@ export class AppAddCompanyComponent {
     private validation: AppValidation,
     private appCommon: AppCommon
   ) {
-    console.log(this.employee);
+
+    let demo = this.appCommon.nowDate("2021,12,3,12,45,53")
+    console.log(demo);
     
   }
 
@@ -53,6 +55,7 @@ export class AppAddCompanyComponent {
     this.loading.show();
     // Chua chuyen dinh dang ngay thang nam
     // this.employee.phoneNumber = this.appCommon.getPhoneNumber(this.employee.phoneNumber);
+
     this.employeeService.save(this.employee).subscribe(res => this.saveEmployeeCompleted(res));
   }
 

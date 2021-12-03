@@ -9,26 +9,26 @@ import {CustomerModel} from '../../../data/schema/customer.model';
 })
 export class CustomerService extends SoftwareBaseService {
   public findAll(): Observable<any> {
-    return this.get('/api/v1/company/findAll', {});
+    return this.get('/api/v1/customer/findAll', {});
   }
 
   public find(search: BaseSearchModel<CustomerModel[]>): Observable<any> {
-    return this.post('/api/v1/company/findAll', search);
+    return this.post('/api/v1/customer/findAll', search);
   }
 
   public getLikeNameOrSlugName(name: string): Observable<any> {
-    return this.get('/api/v1/company/getLikeNameOrSlugName', {name});
+    return this.get('/api/v1/customer/getLikeNameOrSlugName', {name});
   }
 
-  public save(company: CustomerModel): Observable<any> {
-    return this.post('/api/v1/company/insert', company);
+  public save(customer: CustomerModel): Observable<any> {
+    return this.post('/api/v1/customer/insert', customer);
   }
 
-  public update(company: CustomerModel): Observable<any> {
-    return this.put('/api/v1/company/update', company);
+  public update(customer: CustomerModel): Observable<any> {
+    return this.put('/api/v1/customer/update', customer);
   }
 
-  public deleteCompany(companyId: string): Observable<any> {
-    return this.delete(`/api/v1/company/delete/${companyId}`);
+  public deleteCustomer(customerId: string): Observable<any> {
+    return this.delete(`/api/v1/customer/delete/${customerId}`);
   }
 }
