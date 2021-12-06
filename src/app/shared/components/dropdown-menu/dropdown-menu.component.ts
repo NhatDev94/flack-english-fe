@@ -7,5 +7,6 @@ import {Component, Input} from '@angular/core';
 export class DropdownMenuComponent {
   @Input() title;
 
+
   public menuId = 'dropdown_menu_' + Math.floor(new Date().getTime() * Math.random());
 }

@@ -24,6 +24,7 @@ export class EmployeeComponent implements AfterViewInit {
     private route: ActivatedRoute,
     private employeeService: EmployeeService
   ) {
+
   }
 
   ngOnInit() {

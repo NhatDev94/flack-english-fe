@@ -16,8 +16,8 @@ export class AppUpdateCompanyComponent {
 
   @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('appModalWrapper', {static: true}) appModalWrapper: AppModalWrapperComponent;
-  public company: CustomerModel = new CustomerModel();
-
+  public customer: CustomerModel = new CustomerModel();
+  public newPassword: any
   constructor(
     private alert: AppAlert,
     private loading: AppLoading,
@@ -27,8 +27,8 @@ export class AppUpdateCompanyComponent {
   ) {
   }
 
-  public show(company: CustomerModel) {
-    this.company = new CustomerModel(company);
+  public show(customer: CustomerModel) {
+    this.customer = new CustomerModel(customer);
     this.appModalWrapper.show();
   }
 
@@ -43,14 +43,19 @@ export class AppUpdateCompanyComponent {
     // }
   }
 
-  public saveCompany() {
+  public saveCustomer() {
     this.loading.show();
+    if (!this.validation.validatePassword(this.newPassword)) {
+      this.alert.error('Mật khẩu phải có nhiều hơn 6 kí tụ, có ít nhất 1 ký tự in hoa và 1 ký tự số');
+      return;
+    }
+    this.customer.password = this.newPassword
     // this.company.phone = this.appCommon.getPhoneNumber(this.company.phone);
-    this.customerService.update(this.company).subscribe(res => this.saveCompanyCompleted(res));
+    this.customerService.update(this.customer).subscribe(res => this.saveCustomerCompleted(res));
     // Phai sua trong companyService nua
   }
 
-  private saveCompanyCompleted(res: ResponseModel<CustomerModel>) {
+  private saveCustomerCompleted(res: ResponseModel<CustomerModel>) {
     this.loading.hide();
     if (res.status !== HTTP_CODE_CONSTANT.OK) {
       res.message.forEach(value => {
