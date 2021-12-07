@@ -30,7 +30,7 @@ export class EmployeeListComponent implements AfterViewInit {
     this.modal.confirm('Bạn có muốn xoá nhân viên?', 'Xác nhận').subscribe(res => this.confirmDeleteEmployee(res, employee));
   }
 
-  public saveCompanyCompleteEvent() {
+  public saveEmployeeCompleteEvent() {
     this.search.currentPage = 0;
     this.getEmployees();
   }

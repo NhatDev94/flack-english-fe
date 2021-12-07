@@ -1,13 +1,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {SharedModule} from '../../../shared/shared.module';
-import {AppAddCompanyComponent} from './components/add-company/app-add-company.component';
-import {AppUpdateCompanyComponent} from './components/update-company/app-update-company.component';
+import {AppAddEmployeeComponent} from './components/add-employee/app-add-employee.component';
+import {AppUpdateEmployeeComponent} from './components/update-employee/app-update-employee.component';
 import { EmployeeListComponent } from './pages/employeeList.component';
 
 const COMPONENTS = [
-  AppAddCompanyComponent,
-  AppUpdateCompanyComponent
+  AppAddEmployeeComponent,
+  AppUpdateEmployeeComponent
 ];
 
 export const routes: Routes = [

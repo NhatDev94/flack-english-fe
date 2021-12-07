@@ -44,10 +44,10 @@ export class EmployeeComponent implements AfterViewInit {
     this.modal.confirm('Bạn có muốn xoá công ty?', 'Xác nhận').subscribe(res => this.confirmDeleteCompany(res, company));
   }
 
-  public saveCompanyCompleteEvent() {
-    this.search.currentPage = 0;
-    this.getCompanies();
-  }
+  // public saveCompanyCompleteEvent() {
+  //   this.search.currentPage = 0;
+  //   this.getCompanies();
+  // }
 
   public dataTableChange(searchChange: BaseSearchModel<EmployeeModel[]>) {
     this.search = searchChange;

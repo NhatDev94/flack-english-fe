@@ -1,18 +1,18 @@
 import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
-import {EmployeeModel} from '../../../../../../../data/schema/employee.model';
-import {AppModalWrapperComponent} from '../../../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';
-import {ResponseModel} from '../../../../../../../data/schema/response.model';
-import {HTTP_CODE_CONSTANT} from '../../../../../../../core/constant/http-code.constant';
-import {AppAlert, AppLoading} from '../../../../../../../shared/utils';
-import {AppValidation} from '../../../../../../../shared/utils/app-validation';
-import {AppCommon} from '../../../../../../../shared/utils/app-common';
-import {EmployeeService} from '../../../../../../../core/service/software/employee.service';
+import {AppModalWrapperComponent} from '../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';
+import {ResponseModel} from '../../../../../data/schema/response.model';
+import {HTTP_CODE_CONSTANT} from '../../../../../core/constant/http-code.constant';
+import {AppAlert, AppLoading} from '../../../../../shared/utils';
+import {AppValidation} from '../../../../../shared/utils/app-validation';
+import {AppCommon} from '../../../../../shared/utils/app-common';
+import {EmployeeService} from '../../../../../core/service/software/employee.service';
+import { EmployeeModel } from 'src/app/data/schema/employee.model';
 
 @Component({
-  selector: 'app-add-company',
-  templateUrl: './app-add-company.component.html',
+  selector: 'app-add-employee',
+  templateUrl: './app-add-employee.component.html',
 })
-export class AppAddCompanyComponent {
+export class AppAddEmployeeComponent {
   @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('appModalWrapper', {static: true}) appModalWrapper: AppModalWrapperComponent;
   public employee: EmployeeModel = new EmployeeModel();
@@ -24,6 +24,10 @@ export class AppAddCompanyComponent {
     private validation: AppValidation,
     private appCommon: AppCommon
   ) {
+
+    let demo = this.appCommon.nowDate("2021,12,3,12,45,53")
+    console.log(demo);
+    
   }
 
   public show() {
@@ -35,24 +39,23 @@ export class AppAddCompanyComponent {
     this.appModalWrapper.hide();
   }
 
-  public companyNameChange() {
-    // if (this.employee.userName) {
-    //   const nameSlug = this.employee.userName.trim().toLocaleLowerCase().replace(/ /g, '-');
-    //   this.employee.userName = nameSlug;
-    // }
-  }
+  // public companyNameChange() {
+  //   if (this.employee.name) {
+  //     const nameSlug = this.employee.name.trim().toLocaleLowerCase().replace(/ /g, '-');
+  //     this.employee.nameSlug = nameSlug;
+  //   }
+  // }
 
   public saveEmployee() {
-    console.log(this.employee);
-    
+
     if (!this.validation.validatePassword(this.employee.password)) {
       this.alert.error('Mật khẩu phải có nhiều hơn 6 kí tụ, có ít nhất 1 ký tự in hoa và 1 ký tự số');
       return;
     }
     this.loading.show();
+    // Chua chuyen dinh dang ngay thang nam
+    // this.employee.phoneNumber = this.appCommon.getPhoneNumber(this.employee.phoneNumber);
 
-    this.employee.phoneNumber = this.appCommon.getPhoneNumber(this.employee.phoneNumber);
-    // phai xu ly du lieu nhu the nao
     this.employeeService.save(this.employee).subscribe(res => this.saveEmployeeCompleted(res));
   }
 
