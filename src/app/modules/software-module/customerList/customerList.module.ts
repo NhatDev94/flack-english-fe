@@ -1,13 +1,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {SharedModule} from '../../../shared/shared.module';
-import {AppAddCompanyComponent} from './components/add-company/app-add-company.component';
-import {AppUpdateCompanyComponent} from './components/update-company/app-update-company.component';
+import {AppAddCustomerComponent} from './components/add-customer/app-add-customer.component';
+import {AppUpdateCustomerComponent} from './components/update-customer/app-update-customer.component';
 import { CustomerListComponent } from './pages/customerList.component';
 
 const COMPONENTS = [
-  AppAddCompanyComponent,
-  AppUpdateCompanyComponent
+  AppAddCustomerComponent,
+  AppUpdateCustomerComponent
 ];
 
 export const routes: Routes = [

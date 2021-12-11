@@ -27,7 +27,7 @@
             <app-data-table (changeEvent)="dataTableChange($event)" [columnNumber]="5" [dataTable]="search">
               <div class="block-buttons-right row justify-content-center justify-content-md-end">
                 <button
-                  (click)="addCompanyComponent.show()"
+                  (click)="addCustomerComponent.show()"
                   class="btn bg-warning">
                   Tạo mới
                 </button>
@@ -54,7 +54,7 @@
                 <td routerLink="/customer/{{e.id}}">{{e.phoneNumber}}</td>
                 <td>
                   <app-dropdown-menu>
-                    <span (click)="updateCompanyComponent.show(e)" class="dropdown-item text-cyan">
+                    <span (click)="updateCustomerComponent.show(e)" class="dropdown-item text-cyan">
                       <i class="far fa-edit"></i>
                       Sửa
                     </span>
@@ -77,9 +77,9 @@
     <!-- /.row -->
   </div>
 
-  <app-add-company #addCompanyComponent (saveCompleteEvent)="saveCustomerCompleteEvent()"></app-add-company>
+  <app-add-customer #addCustomerComponent (saveCompleteEvent)="saveCustomerCompleteEvent()"></app-add-customer>
   <!-- /.modal-add -->
-  <app-update-company #updateCompanyComponent (saveCompleteEvent)="saveCustomerCompleteEvent()"></app-update-company>
+  <app-update-customer #updateCustomerComponent (saveCompleteEvent)="saveCustomerCompleteEvent()"></app-update-customer>
   <!-- /.modal-edit -->
 </section>
 <!-- /.content -->

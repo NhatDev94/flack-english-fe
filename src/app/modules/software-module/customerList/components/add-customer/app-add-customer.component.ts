@@ -9,10 +9,10 @@ import {CustomerService} from '../../../../../core/service/software/customer.ser
 import { CustomerModel } from 'src/app/data/schema/customer.model';
 
 @Component({
-  selector: 'app-add-company',
-  templateUrl: './app-add-company.component.html',
+  selector: 'app-add-customer',
+  templateUrl: './app-add-customer.component.html',
 })
-export class AppAddCompanyComponent {
+export class AppAddCustomerComponent {
   @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('appModalWrapper', {static: true}) appModalWrapper: AppModalWrapperComponent;
   public customer: CustomerModel = new CustomerModel();

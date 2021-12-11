@@ -1,24 +1,25 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { AppAlert, AppLoading, AppModals } from '../../../../../../shared/utils';
-import { CompanyService } from '../../../../../../core/service/software/company.service';
+import { CustomerService } from '../../../../../../core/service/software/customer.service';
 import { BaseSearchModel } from '../../../../../../data/schema/search/base-search.model';
 import { ResponseModel } from '../../../../../../data/schema/response.model';
 import { HTTP_CODE_CONSTANT } from '../../../../../../core/constant/http-code.constant';
-import { CompanyModel } from '../../../../../../data/schema/company.model';
 import { ActivatedRoute } from '@angular/router';
+import { CustomerModel } from 'src/app/data/schema/customer.model';
 
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
 })
 export class CustomerComponent implements AfterViewInit {
-  public search: BaseSearchModel<CompanyModel[]> = new BaseSearchModel<CompanyModel[]>();
+  public search: BaseSearchModel<CustomerModel[]> = new BaseSearchModel<CustomerModel[]>();
   public customerId: any
+  public customer: CustomerModel
   constructor(
     private modal: AppModals,
     private loading: AppLoading,
     private alert: AppAlert,
-    private companyService: CompanyService,
+    private customerService: CustomerService,
     private route: ActivatedRoute
   ) {
   }
@@ -27,8 +28,6 @@ export class CustomerComponent implements AfterViewInit {
     if (this.route.snapshot.params['id']) {
       this.customerId = this.route.snapshot.params['id']
     }
-    console.log(this.customerId);
-    
   }
 
   listCourse: any = [
@@ -69,44 +68,34 @@ export class CustomerComponent implements AfterViewInit {
     },
   ]
 
-  customer: any = [
-    {
-      id: '1',
-      userName: 'Nguyen Van Nhat',
-      email: 'nhatdev94@gmail.com',
-      birthday: '1994-09-21',
-      createdDate: '2021-11-22',
-      lastUpdate: '2021-12-02',
-      phoneNumber: '0963244816'
-    }
-  ]
+
 
   ngAfterViewInit() {
-    this.getCompanies();
+    this.getCustomers();
   }
 
-  public deleteCompany(company: any) {
-    this.modal.confirm('Bạn có muốn xoá công ty?', 'Xác nhận').subscribe(res => this.confirmDeleteCompany(res, company));
+  public deleteCustomer(company: any) {
+    this.modal.confirm('Bạn có muốn xoá công ty?', 'Xác nhận').subscribe(res => this.confirmDeleteCustomer(res, company));
   }
 
-  public saveCompanyCompleteEvent() {
+  public saveCustomerCompleteEvent() {
     this.search.currentPage = 0;
-    this.getCompanies();
+    this.getCustomers();
   }
 
-  public dataTableChange(searchChange: BaseSearchModel<CompanyModel[]>) {
+  public dataTableChange(searchChange: BaseSearchModel<CustomerModel[]>) {
     this.search = searchChange;
-    this.getCompanies();
+    this.getCustomers();
   }
 
-  private confirmDeleteCompany(state: boolean, company: CompanyModel) {
+  private confirmDeleteCustomer(state: boolean, company: CustomerModel) {
     if (state) {
       this.loading.show();
-      this.companyService.deleteCompany(company.id).subscribe(res => this.confirmDeleteCompanyCompleted(res));
+      this.customerService.deleteCustomer(company.id).subscribe(res => this.confirmDeleteCustomerCompleted(res));
     }
   }
 
-  private confirmDeleteCompanyCompleted(res: ResponseModel<any>) {
+  private confirmDeleteCustomerCompleted(res: ResponseModel<any>) {
     this.loading.hide();
     if (res.status !== HTTP_CODE_CONSTANT.OK) {
       res.message.forEach(value => {
@@ -116,15 +105,15 @@ export class CustomerComponent implements AfterViewInit {
     }
 
     this.alert.success(res.message[0]);
-    this.getCompanies();
+    this.getCustomers();
   }
 
-  private getCompanies() {
+  private getCustomers() {
     this.loading.show();
-    this.companyService.find(this.search).subscribe(res => this.getCompaniesCompleted(res));
+    this.customerService.find(this.search).subscribe(res => this.getCustomersCompleted(res));
   }
 
-  private getCompaniesCompleted(res: ResponseModel<BaseSearchModel<CompanyModel[]>>) {
+  private getCustomersCompleted(res: ResponseModel<BaseSearchModel<CustomerModel[]>>) {
     this.loading.hide();
     if (res.status !== HTTP_CODE_CONSTANT.OK) {
       res.message.forEach(value => {
@@ -134,5 +123,11 @@ export class CustomerComponent implements AfterViewInit {
     }
 
     this.search = res.result;
+    
+    
+    
+    this.search.result.map(item => {
+      if (item.id === this.customerId) this.customer = item
+    })
   }
 }

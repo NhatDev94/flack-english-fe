@@ -18,16 +18,16 @@
                       <p>Email</p>
                       <p>Birthday</p>
                       <p>CreatedDate</p>
-                      <p>LastUpdate</p>
+                      <p>UpdateDate</p>
                       <p>PhoneNumber</p>
                     </div>
-                    <div class="info-content" *ngFor="let e of customer">
-                      <p>{{e.userName}}</p>
-                      <p>{{e.email}}</p>
-                      <p>{{e.birthday}}</p>
-                      <p>{{e.createdDate}}</p>
-                      <p>{{e.lastUpdate}}</p>
-                      <p>{{e.phoneNumber}}</p>
+                    <div class="info-content">
+                      <p>{{customer && customer.userName}}</p>
+                      <p>{{customer && customer.email}}</p>
+                      <p>{{customer && customer.birthday}}</p>
+                      <p>{{customer && customer.createdDate}}</p>
+                      <p>{{customer && customer.updatedDate}}</p>
+                      <p>{{customer && customer.phoneNumber}}</p>
                     </div>
                   </div>
                 </div>
@@ -64,7 +64,7 @@
                           <i class="far fa-edit"></i>
                           Sửa
                         </span>
-                        <span (click)="deleteCompany(e)" class="dropdown-item text-red">
+                        <span (click)="deleteCustomer(e)" class="dropdown-item text-red">
                           <!-- <i class="far fa-trash-alt mr-1"></i> -->
                           <i class="fas fa-ban"></i>
                           Khóa tài khoản
@@ -84,9 +84,9 @@
       <!-- /.row -->
     </div>
   
-    <app-add-company #addCompanyComponent (saveCompleteEvent)="saveCompanyCompleteEvent()"></app-add-company>
+    <app-add-company #addCompanyComponent (saveCompleteEvent)="saveCustomerCompleteEvent()"></app-add-company>
     <!-- /.modal-add -->
-    <app-update-company #updateCompanyComponent (saveCompleteEvent)="saveCompanyCompleteEvent()"></app-update-company>
+    <app-update-company #updateCompanyComponent (saveCompleteEvent)="saveCustomerCompleteEvent()"></app-update-company>
     <!-- /.modal-edit -->
   </section>
   <!-- /.content -->

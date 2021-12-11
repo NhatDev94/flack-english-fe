@@ -9,15 +9,14 @@ import {AppValidation} from '../../../../../shared/utils/app-validation';
 import {AppCommon} from '../../../../../shared/utils/app-common';
 
 @Component({
-  selector: 'app-update-company',
-  templateUrl: './app-update-company.component.html',
+  selector: 'app-update-customer',
+  templateUrl: './app-update-customer.component.html',
 })
-export class AppUpdateCompanyComponent {
+export class AppUpdateCustomerComponent {
 
   @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('appModalWrapper', {static: true}) appModalWrapper: AppModalWrapperComponent;
   public customer: CustomerModel = new CustomerModel();
-  public newPassword: any
   constructor(
     private alert: AppAlert,
     private loading: AppLoading,
@@ -29,6 +28,7 @@ export class AppUpdateCompanyComponent {
 
   public show(customer: CustomerModel) {
     this.customer = new CustomerModel(customer);
+    this.customer.password = ''
     this.appModalWrapper.show();
   }
 
@@ -45,11 +45,10 @@ export class AppUpdateCompanyComponent {
 
   public saveCustomer() {
     this.loading.show();
-    if (!this.validation.validatePassword(this.newPassword)) {
+    if (!this.validation.validatePassword(this.customer.password)) {
       this.alert.error('Mật khẩu phải có nhiều hơn 6 kí tụ, có ít nhất 1 ký tự in hoa và 1 ký tự số');
       return;
     }
-    this.customer.password = this.newPassword
     // this.company.phone = this.appCommon.getPhoneNumber(this.company.phone);
     this.customerService.update(this.customer).subscribe(res => this.saveCustomerCompleted(res));
     // Phai sua trong companyService nua

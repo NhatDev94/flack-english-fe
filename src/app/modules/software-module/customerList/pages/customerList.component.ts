@@ -74,5 +74,6 @@ export class CustomerListComponent implements AfterViewInit {
     }
 
     this.search = res.result;
+
   }
 }
