@@ -1,0 +1,55 @@
+<app-modal-wrapper #appModalWrapper title="Thêm mói Employee">
+  <div class="modal-body" id="add-company-modal">
+    <div class="row">
+      <div class="col-md-4 form-group">
+        <label for="add_employee_email">Email <span class="text-red">*</span></label>
+        <input [(ngModel)]="employee.email" class="form-control"
+               id="add_employee_email"
+               name="email"
+               placeholder="Email" type="email"/>
+      </div>
+      <div class="col-md-4 form-group">
+        <label for="add_employee_user_name">UserName <span class="text-red">*</span></label>
+        <app-input-mask [(ngModel)]="employee.userName"
+                        [classes]="'form-control'"></app-input-mask>
+      </div>
+      <div class="col-md-4 form-group">
+        <label for="add_company_address">Password <span class="text-red">*</span></label>
+        <input [(ngModel)]="employee.password" class="form-control" id="add_company_pass" name="password"
+               placeholder="Password" type="password"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 form-group">
+        <label>FirstName <span class="text-red">*</span></label>
+        <app-input-mask [(ngModel)]="employee.firstName"
+                        [classes]="'form-control'"></app-input-mask>
+      </div>
+      <div class="col-md-4 form-group">
+        <label for="add_company_email">LastName <span class="text-red">*</span></label>
+        <app-input-mask [(ngModel)]="employee.lastName"
+                        [classes]="'form-control'"></app-input-mask>
+      </div>
+      <div class="col-md-4 form-group">
+        <label for="add_company_pass">Birthday <span class="text-red">*</span></label>
+        <input [(ngModel)]="employee.birthday" class="form-control" id="add_company_pass" name="birthday"
+               placeholder="Birthday" type="date"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 form-group">
+        <label for="add_company_pass">PhoneNumber <span class="text-red">*</span></label>
+        <app-input-mask [(ngModel)]="employee.phoneNumber"
+                        [classes]="'form-control adi-phone-input-mask'"></app-input-mask>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer justify-content-between">
+    <button (click)="appModalWrapper.hide()" class="btn btn-default" type="button">
+      <i class="fas fa-times mr-1"></i>Đóng
+    </button>
+    <button (click)="saveEmployee()" class="btn btn-primary" type="button">
+      <i class="fas fa-save mr-1"></i>Lưu
+    </button>
+  </div>
+</app-modal-wrapper>

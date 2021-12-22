@@ -1,0 +1,101 @@
+<app-modal-wrapper #appModalWrapper title="Vocabulary">
+  <div class="modal-body" id="add-company-modal">
+    <div class="item add-img flex">
+      <div class="btn btn-success">Them Anh</div>
+    </div>
+    <div class="item flex">
+      <div class="left">
+        <p>Vocabulary</p>
+      </div>
+      <div class="right">
+        <textarea name="" id="" cols="30" rows="2"></textarea>
+      </div>
+    </div>
+    <div class="item flex">
+      <div class="left">
+        <p>Mean Content</p>
+      </div>
+      <div class="right">
+        <textarea name="" id="" cols="30" rows="2"></textarea>
+      </div>
+    </div>
+    <div class="item flex">
+      <div class="left">
+        <p>Example</p>
+      </div>
+      <div class="right">
+        <textarea name="" id="" cols="30" rows="2"></textarea>
+      </div>
+    </div>
+    <div class="item flex">
+      <div class="left">
+        <p>Hack Content</p>
+      </div>
+      <div class="right">
+        <textarea name="" id="" cols="30" rows="2"></textarea>
+      </div>
+    </div>
+    <div class="item flex">
+      <div class="left">
+        <p>Translate</p>
+      </div>
+      <div class="right">
+        <textarea name="" id="" cols="30" rows="2"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer justify-content-between">
+    <button (click)="appModalWrapper.hide()" class="btn btn-default" type="button">
+      <i class="fas fa-times mr-1"></i>Đóng
+    </button>
+    <button (click)="saveCompany()" class="btn btn-primary" type="button">
+      <i class="fas fa-save mr-1"></i>Lưu
+    </button>
+  </div>
+</app-modal-wrapper>
+
+<style>
+  .flex {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .add-img {
+    padding: 10px 20px;
+    justify-content: center;
+    padding-bottom: 20px !important;
+  }
+
+  .add-img button {
+    padding: 10px 20px;
+  }
+
+  .item {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 0 40px;
+  }
+
+  .item .left {
+    width: 15%;
+  }
+
+  .item .left p {
+    font-size: 16px;
+    font-size: 600;
+  }
+
+  .item .right {
+    width: 80%;
+  }
+
+  .item .right textarea {
+    width: 100%;
+    outline: none;
+    border: none;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    padding: 0 10px;
+  }
+
+</style>

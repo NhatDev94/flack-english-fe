@@ -1,0 +1,45 @@
+<app-modal-wrapper #appModalWrapper title="Search">
+  <div class="modal-body" id="add-company-modal">
+    <div class="row">
+      <div class="col-md-4 form-group">
+        <label for="update_company_first_name">Vocobulary <span class="text-red">*</span></label>
+        <input [(ngModel)]="employee.userName" class="form-control"
+               id="update_company_first_name"
+               name=""
+               placeholder="Vocobulary" type="text"/>
+      </div>
+      <div class="col-md-4 form-group">
+        <label for="update_company_email">Type</label>
+        <input [(ngModel)]="employee.firstName" class="form-control" id="update_company_email" name=""
+               placeholder="Type"
+               type="text"/>
+      </div>
+      <div class="col-md-4 form-group">
+        <label for="update_company_email">Mean Content</label>
+        <input [(ngModel)]="employee.lastName" class="form-control" id="update_company_email" name=""
+               placeholder="Mean Content"
+               type="text"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 form-group">
+        <label for="update_company_address">Example <span class="text-red">*</span></label>
+        <app-input-mask [(ngModel)]="newPassword"
+                        [classes]="'form-control adi-phone-input-mask'"></app-input-mask>
+      </div>
+      <div class="col-md-4 form-group">
+        <label for="update_company_address">Hack Content <span class="text-red">*</span></label>
+        <input [(ngModel)]="employee.birthday" class="form-control" id="update_company_address" name=""
+               placeholder="Hack Content" type="text"/>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer justify-content-between">
+    <button (click)="appModalWrapper.hide()" class="btn btn-default" type="button">
+      <i class="fas fa-times mr-1"></i>Đóng
+    </button>
+    <button (click)="saveCompany()" class="btn btn-primary" type="button">
+      <i class="fas fa-save mr-1"></i>Lưu
+    </button>
+  </div>
+</app-modal-wrapper>

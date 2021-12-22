@@ -1,0 +1,137 @@
+<app-modal-wrapper #appModalWrapper title="Vocabulary">
+  <div class="modal-body" id="add-company-modal">
+    <div class="img">
+      <img src="https://bytuong.com/wp-content/uploads/2021/08/%C3%9D-ngh%C4%A9a-Smart-contract-l%C3%A0-g%C3%AC-blockchain-l%C3%A0-g%C3%AC.jpg" />
+
+    </div>
+    <div class="vocabulary item flex">
+      <div class="left">
+        <p>Vocabulary</p>
+      </div>
+      <div class="right flex">
+        <div class="char"><p class="hide">C</p></div>
+        <div class="char"><p>O</p></div>
+        <div class="char"><p>N</p></div>
+        <div class="char"><p>T</p></div>
+        <div class="char"><p>R</p></div>
+        <div class="char"><p class="hide">A</p></div>
+        <div class="char"><p>C</p></div>
+        <div class="char"><p>T</p></div>
+      </div>
+    </div>
+    <div class="item flex">
+      <div class="left">
+        <p>Mean Content</p>
+      </div>
+      <div class="right">
+        <textarea name="" id="" cols="30" rows="2"></textarea>
+      </div>
+    </div>
+    <div class="item flex">
+      <div class="left">
+        <p>Example</p>
+      </div>
+      <div class="right">
+        <textarea name="" id="" cols="30" rows="2"></textarea>
+      </div>
+    </div>
+    <div class="item flex">
+      <div class="left">
+        <p>Hack Content</p>
+      </div>
+      <div class="right">
+        <textarea name="" id="" cols="30" rows="2"></textarea>
+      </div>
+    </div>
+    <div class="item flex">
+      <div class="left">
+        <p>Translate</p>
+      </div>
+      <div class="right">
+        <textarea name="" id="" cols="30" rows="2"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer justify-content-between">
+    <button (click)="appModalWrapper.hide()" class="btn btn-default" type="button">
+      <i class="fas fa-times mr-1"></i>Đóng
+    </button>
+    <button (click)="saveCompany()" class="btn btn-primary" type="button">
+      <i class="fas fa-save mr-1"></i>Lưu
+    </button>
+  </div>
+</app-modal-wrapper>
+
+<style>
+.flex {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .img {
+    width: 400px;
+    height: 240px;
+    overflow: hidden;
+    margin: auto;
+    box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+  }
+
+  .add-img {
+    padding: 10px 20px;
+    justify-content: center;
+    padding-bottom: 20px !important;
+  }
+
+  .add-img button {
+    padding: 10px 20px;
+  }
+
+  .item {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 0 190px;
+  }
+
+  .item .left {
+    width: 30%;
+  }
+
+  .item .left p {
+    font-size: 14px;
+    font-size: 600;
+  }
+
+  .item .right {
+    width: 70%;
+  }
+
+  .item .right textarea {
+    width: 100%;
+    outline: none;
+    border: none;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    padding: 0 10px;
+  }
+
+  .char {
+    width: 30px;
+    height: 40px;
+    background: chocolate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+  }
+
+  .char p {
+    margin-bottom: 0;
+    font-weight: 700;
+  }
+
+  .char p.hide {
+    display: none;
+  }
+
+</style>

@@ -1,0 +1,97 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Danh mục bộ từ vựng</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="/">Trang chủ</a></li>
+          <li class="breadcrumb-item active">Bộ từ vựng</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <!-- /.card-header -->
+          <div class="card-body">
+            <app-data-table (changeEvent)="dataTableChange($event)" [columnNumber]="5" [dataTable]="search">
+              <div class="block-buttons-right row justify-content-center justify-content-md-end">
+                <button
+                  (click)="updateEmployeeComponent.show()"
+                  class="btn bg-success search">
+                  <i class="fas fa-search"></i>
+                </button>
+                <button
+                  (click)="addCourseComponent.show()"
+                  class="btn bg-warning">
+                  Tạo mới
+                </button>
+              </div>
+              <thead>
+              <tr>
+                <th>Vocabulary</th>
+                <th>Type</th>
+                <th>Mean Content</th>
+                <th>Example</th>
+                <th>Hack Content</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <!-- <tr *ngFor="let e of search.result"> -->
+              <tr *ngFor="let e of vocabulary">
+                <td (click)="showCourseComponent.show(e)">{{e.vocabulary}}</td>
+                <td (click)="showCourseComponent.show(e)">{{e.type}}</td>
+                <td (click)="showCourseComponent.show(e)">{{e.meanContent}}</td>
+                <td (click)="showCourseComponent.show(e)">{{e.example}}</td>
+                <td (click)="showCourseComponent.show(e)">{{e.hackContent}}</td>
+                <td>
+                  <app-dropdown-menu>
+                    <span (click)="showCourseComponent.show(e)" class="dropdown-item text-cyan">
+                      <i class="far fa-edit"></i>
+                      Sửa
+                    </span>
+                    <span (click)="deleteEmployee(e)" class="dropdown-item text-red">
+                      <i class="far fa-trash-alt mr-1"></i>
+                      Xoá
+                    </span>
+                  </app-dropdown-menu>
+                </td>
+              </tr>
+              </tbody>
+            </app-data-table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+
+  <!-- <app-add-employee #addEmployeeComponent (saveCompleteEvent)="saveEmployeeCompleteEvent()"></app-add-employee> -->
+  <app-show-course #showCourseComponent (saveCompleteEvent)="saveEmployeeCompleteEvent()"></app-show-course>
+  <app-add-course #addCourseComponent (saveCompleteEvent)="saveEmployeeCompleteEvent()"></app-add-course>
+
+  <!-- /.modal-add -->
+  <app-update-employee #updateEmployeeComponent (saveCompleteEvent)="saveEmployeeCompleteEvent()"></app-update-employee>
+  <!-- /.modal-edit -->
+</section>
+<!-- /.content -->
+
+<style>
+  .search {
+    margin-right: 10px;
+  }
+</style>

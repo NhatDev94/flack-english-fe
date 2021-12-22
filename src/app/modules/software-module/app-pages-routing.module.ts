@@ -48,6 +48,16 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'courses',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./courses/courses.module').then((m) => m.CoursesModule),
+      },
+    ],
+  },
 ];
 
 @NgModule({
