@@ -41,8 +41,6 @@
               <tr>
                 <th>Name</th>
                 <th>Description</th>
-                <th>CreatedDate</th>
-                <th>LastUpdate</th>
                 <th></th>
               </tr>
               </thead>
@@ -51,9 +49,7 @@
               <tr *ngFor="let e of courses">
                 <td routerLink="/courses/{{e.id}}">{{e.name}}</td>
                 <td routerLink="/courses/{{e.id}}">{{e.description}}</td>
-                <td routerLink="/courses/{{e.id}}">{{e.createdDate}}</td>
-                <td routerLink="/courses/{{e.id}}">{{e.lastUpdate}}</td>
-                <td>
+                <td class="fit-content">
                   <app-dropdown-menu>
                     <span (click)="updateCourseComponent.show(e)" class="dropdown-item text-cyan">
                       <i class="far fa-edit"></i>
@@ -90,5 +86,9 @@
 <style>
   .search {
     margin-right: 10px;
+  }
+
+  .fit-content {
+    width: 40px;
   }
 </style>
