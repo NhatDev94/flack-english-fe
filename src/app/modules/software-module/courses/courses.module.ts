@@ -1,19 +1,21 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {SharedModule} from '../../../shared/shared.module';
-import {AppAddEmployeeComponent} from './components/add-employee/app-add-employee.component';
-import {AppUpdateEmployeeComponent} from './components/update-employee/app-update-employee.component';
-import { EmployeeListComponent } from './pages/employeeList.component';
+import {AppAddCourseComponent} from './components/add-course/app-add-course.component';
+import {AppUpdateCourseComponent} from './components/update-course/app-update-course.component';
+import { AppSearchCourseComponent } from './components/search-course/app-search-course.component';
+import { CoursesComponent } from './pages/courses.component';
 
 const COMPONENTS = [
-  AppAddEmployeeComponent,
-  AppUpdateEmployeeComponent
+  AppAddCourseComponent,
+  AppUpdateCourseComponent,
+  AppSearchCourseComponent
 ];
 
 export const routes: Routes = [
   {
     path: '',
-    component: EmployeeListComponent
+    component: CoursesComponent
   },
   {
     path: ':id',
@@ -21,7 +23,7 @@ export const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-          import('./components/employee/course.module').then((m) => m.CourseModel),
+          import('./components/course/course.module').then((m) => m.CourseModel),
       },
     ],
   },
@@ -30,7 +32,7 @@ export const routes: Routes = [
 @NgModule({
   declarations: [
     ...COMPONENTS,
-    EmployeeListComponent,
+    CoursesComponent,
   ],
   imports: [
     SharedModule,

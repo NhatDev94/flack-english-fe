@@ -7,10 +7,10 @@ import {HTTP_CODE_CONSTANT} from '../../../../core/constant/http-code.constant';
 import {EmployeeModel} from '../../../../data/schema/employee.model';
 
 @Component({
-  selector: 'app-employeeList',
-  templateUrl: './employeeList.component.html',
+  selector: 'app-courses',
+  templateUrl: './courses.component.html',
 })
-export class EmployeeListComponent implements AfterViewInit {
+export class CoursesComponent implements AfterViewInit {
   public search: BaseSearchModel<EmployeeModel[]> = new BaseSearchModel<EmployeeModel[]>();
 
   constructor(
@@ -49,8 +49,8 @@ export class EmployeeListComponent implements AfterViewInit {
     this.getEmployees();
   }
 
-  public deleteEmployee(employee: any) {
-    this.modal.confirm('Bạn có muốn xoá nhân viên?', 'Xác nhận').subscribe(res => this.confirmDeleteEmployee(res, employee));
+  public deleteCourse(course: any) {
+    this.modal.confirm('Bạn có muốn xoá Course?', 'Xác nhận').subscribe(res => this.confirmDeleteEmployee(res, course));
   }
 
   public saveEmployeeCompleteEvent() {

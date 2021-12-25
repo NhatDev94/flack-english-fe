@@ -1,0 +1,26 @@
+<app-modal-wrapper #appModalWrapper title="Thêm mói Course">
+  <div class="modal-body" id="add-company-modal">
+    <div class="row">
+      <div class="col-md-4 form-group">
+        <label for="add_course_name">Name <span class="text-red">*</span></label>
+        <input [(ngModel)]="course.email" class="form-control"
+               id="add_course_name"
+               name="name"
+               placeholder="Email" type="text"/>
+      </div>
+      <div class="col-md-4 form-group">
+        <label for="add_course_description">Description <span class="text-red">*</span></label>
+        <app-input-mask [(ngModel)]="course.userName"
+                        [classes]="'form-control'"></app-input-mask>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer justify-content-between">
+    <button (click)="appModalWrapper.hide()" class="btn btn-default" type="button">
+      <i class="fas fa-times mr-1"></i>Đóng
+    </button>
+    <button (click)="saveEmployee()" class="btn btn-primary" type="button">
+      <i class="fas fa-save mr-1"></i>Lưu
+    </button>
+  </div>
+</app-modal-wrapper>

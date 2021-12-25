@@ -1,22 +1,22 @@
 import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
-import {AppModalWrapperComponent} from '../../../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';
-import {EmployeeModel} from '../../../../../../../data/schema/employee.model';
-import {ResponseModel} from '../../../../../../../data/schema/response.model';
-import {HTTP_CODE_CONSTANT} from '../../../../../../../core/constant/http-code.constant';
-import {AppAlert, AppLoading} from '../../../../../../../shared/utils';
-import {AppValidation} from '../../../../../../../shared/utils/app-validation';
-import {AppCommon} from '../../../../../../../shared/utils/app-common';
+import {AppModalWrapperComponent} from '../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';
+import {EmployeeModel} from '../../../../../data/schema/employee.model';
+import {ResponseModel} from '../../../../../data/schema/response.model';
+import {HTTP_CODE_CONSTANT} from '../../../../../core/constant/http-code.constant';
+import {AppAlert, AppLoading} from '../../../../../shared/utils';
+import {AppValidation} from '../../../../../shared/utils/app-validation';
+import {AppCommon} from '../../../../../shared/utils/app-common';
 import { EmployeeService } from 'src/app/core/service/software/employee.service';
 
 @Component({
-  selector: 'app-show-course',
-  templateUrl: './app-show-course.component.html',
+  selector: 'app-update-course',
+  templateUrl: './app-update-course.component.html',
 })
-export class AppShowCourseComponent {
+export class AppUpdateCourseComponent {
 
   @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('appModalWrapper', {static: true}) appModalWrapper: AppModalWrapperComponent;
-  public employee: EmployeeModel = new EmployeeModel();
+  public course: EmployeeModel = new EmployeeModel();
   public newPassword: any
 
   constructor(
@@ -29,7 +29,7 @@ export class AppShowCourseComponent {
   }
 
   public show(employee: EmployeeModel) {
-    this.employee = new EmployeeModel(employee);
+    this.course = new EmployeeModel(employee);
     this.appModalWrapper.show();
   }
 
@@ -50,7 +50,7 @@ export class AppShowCourseComponent {
     // this.employee.password = this.newPassword
     // this.company.phone = this.appCommon.getPhoneNumber(this.company.phone);
     // Hoi Nhân hướng dẫn convert dâta
-    this.employeeService.update(this.employee).subscribe(res => this.saveEmployeeCompleted(res));
+    this.employeeService.update(this.course).subscribe(res => this.saveEmployeeCompleted(res));
 
   }
 

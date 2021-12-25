@@ -9,13 +9,13 @@ import {EmployeeService} from '../../../../../core/service/software/employee.ser
 import { EmployeeModel } from 'src/app/data/schema/employee.model';
 
 @Component({
-  selector: 'app-add-employee',
-  templateUrl: './app-add-employee.component.html',
+  selector: 'app-search-course',
+  templateUrl: './app-search-course.component.html',
 })
-export class AppAddEmployeeComponent {
+export class AppSearchCourseComponent {
   @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('appModalWrapper', {static: true}) appModalWrapper: AppModalWrapperComponent;
-  public employee: EmployeeModel = new EmployeeModel();
+  public course: EmployeeModel = new EmployeeModel();
 
   constructor(
     private alert: AppAlert,
@@ -31,7 +31,7 @@ export class AppAddEmployeeComponent {
   }
 
   public show() {
-    this.employee = new EmployeeModel();
+    this.course = new EmployeeModel();
     this.appModalWrapper.show();
   }
 
@@ -48,15 +48,15 @@ export class AppAddEmployeeComponent {
 
   public saveEmployee() {
 
-    if (!this.validation.validatePassword(this.employee.password)) {
-      this.alert.error('Mật khẩu phải có nhiều hơn 6 kí tụ, có ít nhất 1 ký tự in hoa và 1 ký tự số');
-      return;
-    }
+    // if (!this.validation.validatePassword(this.course.password)) {
+    //   this.alert.error('Mật khẩu phải có nhiều hơn 6 kí tụ, có ít nhất 1 ký tự in hoa và 1 ký tự số');
+    //   return;
+    // }
     this.loading.show();
     // Chua chuyen dinh dang ngay thang nam
     // this.employee.phoneNumber = this.appCommon.getPhoneNumber(this.employee.phoneNumber);
 
-    this.employeeService.save(this.employee).subscribe(res => this.saveEmployeeCompleted(res));
+    this.employeeService.save(this.course).subscribe(res => this.saveEmployeeCompleted(res));
   }
 
   private saveEmployeeCompleted(res: ResponseModel<EmployeeModel>) {

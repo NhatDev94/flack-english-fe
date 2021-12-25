@@ -27,39 +27,43 @@
             <app-data-table (changeEvent)="dataTableChange($event)" [columnNumber]="5" [dataTable]="search">
               <div class="block-buttons-right row justify-content-center justify-content-md-end">
                 <button
-                  (click)="addEmployeeComponent.show()"
+                  (click)="searchVocabularyComponent.show()"
                   class="btn bg-success search">
                   <i class="fas fa-search"></i>
                 </button>
                 <button
-                  (click)="addEmployeeComponent.show()"
+                  (click)="addVocabularyComponent.show()"
                   class="btn bg-warning">
                   Tạo mới
                 </button>
               </div>
               <thead>
               <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>CreatedDate</th>
-                <th>LastUpdate</th>
+                <th>Vocabulary</th>
+                <th>Type</th>
+                <th>Translate</th>
+                <th>Mean Content</th>
+                <th>Example</th>
+                <th>Hack Content</th>
                 <th></th>
               </tr>
               </thead>
               <tbody>
               <!-- <tr *ngFor="let e of search.result"> -->
-              <tr *ngFor="let e of courses">
-                <td routerLink="/courses/{{e.id}}">{{e.name}}</td>
-                <td routerLink="/courses/{{e.id}}">{{e.description}}</td>
-                <td routerLink="/courses/{{e.id}}">{{e.createdDate}}</td>
-                <td routerLink="/courses/{{e.id}}">{{e.lastUpdate}}</td>
+              <tr *ngFor="let e of vocabulary">
+                <td (click)="showVocabularyComponent.show(e)">{{e.vocabulary}}</td>
+                <td (click)="showVocabularyComponent.show(e)">{{e.type}}</td>
+                <td (click)="showVocabularyComponent.show(e)">{{e.translate}}</td>
+                <td (click)="showVocabularyComponent.show(e)">{{e.meanContent}}</td>
+                <td (click)="showVocabularyComponent.show(e)">{{e.example}}</td>
+                <td (click)="showVocabularyComponent.show(e)">{{e.hackContent}}</td>
                 <td>
                   <app-dropdown-menu>
-                    <span (click)="updateEmployeeComponent.show(e)" class="dropdown-item text-cyan">
+                    <span (click)="showVocabularyComponent.show(e)" class="dropdown-item text-cyan">
                       <i class="far fa-edit"></i>
                       Sửa
                     </span>
-                    <span (click)="deleteEmployee(e)" class="dropdown-item text-red">
+                    <span (click)="deleteCourse(e)" class="dropdown-item text-red">
                       <i class="far fa-trash-alt mr-1"></i>
                       Xoá
                     </span>
@@ -78,9 +82,12 @@
     <!-- /.row -->
   </div>
 
-  <app-add-employee #addEmployeeComponent (saveCompleteEvent)="saveEmployeeCompleteEvent()"></app-add-employee>
+  <!-- <app-add-employee #addEmployeeComponent (saveCompleteEvent)="saveEmployeeCompleteEvent()"></app-add-employee> -->
+  <app-show-vocabulary #showVocabularyComponent (saveCompleteEvent)="saveEmployeeCompleteEvent()"></app-show-vocabulary>
+  <app-add-vocabulary #addVocabularyComponent (saveCompleteEvent)="saveEmployeeCompleteEvent()"></app-add-vocabulary>
+
   <!-- /.modal-add -->
-  <app-update-employee #updateEmployeeComponent (saveCompleteEvent)="saveEmployeeCompleteEvent()"></app-update-employee>
+  <app-search-vocabulary #searchVocabularyComponent (saveCompleteEvent)="saveEmployeeCompleteEvent()"></app-search-vocabulary>
   <!-- /.modal-edit -->
 </section>
 <!-- /.content -->

@@ -9,10 +9,10 @@ import {AppCommon} from '../../../../../../../shared/utils/app-common';
 import { EmployeeService } from 'src/app/core/service/software/employee.service';
 
 @Component({
-  selector: 'app-add-course',
-  templateUrl: './app-add-course.component.html',
+  selector: 'app-show-vocabulary',
+  templateUrl: './app-show-vocabulary.component.html',
 })
-export class AppAddCourseComponent {
+export class AppShowVocabularyComponent {
 
   @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('appModalWrapper', {static: true}) appModalWrapper: AppModalWrapperComponent;

@@ -9,10 +9,10 @@ import { ActivatedRoute } from '@angular/router';
 import { EmployeeService} from '../../../../../../core/service/software/employee.service'
 
 @Component({
-  selector: 'app-employee',
-  templateUrl: './employee.component.html',
+  selector: 'app-course',
+  templateUrl: './course.component.html',
 })
-export class EmployeeComponent implements AfterViewInit {
+export class CourseComponent implements AfterViewInit {
   public search: BaseSearchModel<EmployeeModel[]> = new BaseSearchModel<EmployeeModel[]>();
   public employeeId: any
   public employee: EmployeeModel
@@ -32,6 +32,7 @@ export class EmployeeComponent implements AfterViewInit {
       id: '1',
       vocabulary: 'contract',
       type: 'n',
+      translate: 'hop dong',
       meanContent: 'An arrangement, apromise or a contract made width sombody. ',
       example: 'Are you going to break the contract?',
       hackContent: 'Đưa tiền trước mà không làm hợp đồng thì còn trách ai'
@@ -40,6 +41,7 @@ export class EmployeeComponent implements AfterViewInit {
       id: '2',
       vocabulary: 'contract',
       type: 'n',
+      translate: 'hop dong',
       meanContent: 'An arrangement, apromise or a contract made width sombody. ',
       example: 'Are you going to break the contract?',
       hackContent: 'Đưa tiền trước mà không làm hợp đồng thì còn trách ai'
@@ -48,6 +50,7 @@ export class EmployeeComponent implements AfterViewInit {
       id: '3',
       vocabulary: 'contract',
       type: 'n',
+      translate: 'hop dong',
       meanContent: 'An arrangement, apromise or a contract made width sombody. ',
       example: 'Are you going to break the contract?',
       hackContent: 'Đưa tiền trước mà không làm hợp đồng thì còn trách ai'
@@ -67,8 +70,8 @@ export class EmployeeComponent implements AfterViewInit {
     this.getCompanies();
   }
 
-  public deleteCompany(company: any) {
-    this.modal.confirm('Bạn có muốn xoá công ty?', 'Xác nhận').subscribe(res => this.confirmDeleteCompany(res, company));
+  public deleteCourse(company: any) {
+    this.modal.confirm('Bạn có muốn xoá Course?', 'Xác nhận').subscribe(res => this.confirmDeleteCompany(res, company));
   }
 
   // public saveCompanyCompleteEvent() {
